@@ -32,3 +32,6 @@ virtualenv /vagrant/env
 
 # Update vagrant .bashrc to source virtualenv on each login of the vagrant user
 sudo su - vagrant -c "echo 'source /vagrant/env/bin/activate' >> ~/.bashrc"
+
+# Update vagrant .bashrc to chanage current directory to shared directory
+sudo su - vagrant -c "echo 'cd /vagrant' >> ~/.bashrc"

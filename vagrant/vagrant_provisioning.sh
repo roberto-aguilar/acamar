@@ -30,8 +30,11 @@ sudo su - postgres -c 'createdb vagrant'
 # Create a virtualenv
 virtualenv /vagrant/env
 
-# Update vagrant .bashrc to source virtualenv on each login of the vagrant user
-sudo su - vagrant -c "echo 'source /vagrant/env/bin/activate' >> ~/.bashrc"
+# Update vagrant .bashrc to enable color in promptv
+sudo su - vagrant -c 'sed -i "1i force_color_prompt=yes" ~/.bashrc'
 
 # Update vagrant .bashrc to chanage current directory to shared directory
-sudo su - vagrant -c "echo 'cd /vagrant' >> ~/.bashrc"
+sudo su - vagrant -c 'echo "cd /vagrant" >> ~/.bashrc'
+
+# Update vagrant .bashrc to source virtualenv on each login of the vagrant user
+sudo su - vagrant -c 'echo "source /vagrant/env/bin/activate" >> ~/.bashrc'

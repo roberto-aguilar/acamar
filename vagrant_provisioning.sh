@@ -4,7 +4,7 @@
 apt-get update
 
 # Install python development packages
-apt-get install -y python-setuptools
+apt-get install -y python-setuptools python-dev
 
 # Install pip python package manager
 easy_install pip
@@ -19,17 +19,16 @@ apt-get install -y git
 apt-get install -y vim
 
 # Install PostgreSQL database
-apt-get install -y postgresql
+apt-get install -y postgresql libpq-dev
 
-# Store the vagrant shared directory location and move to it
-SHARED_DIRECTORY=/vagrant
-cd $SHARED_DIRECTORY
+# Create vagrant PostgreSQL user
+sudo su - postgres -c 'createuser -s vagrant'
+
+# Create vagrant database
+sudo su - postgres -c 'createdb vagrant'
 
 # Create a virtualenv
-virtualenv env
+virtualenv /vagrant/env
 
-# Change current user to vagrant
-sudo -i -u vagrant
-
-# Update .bashrc to source virtualenv on each login of the vagrant user
-echo "source $SHARED_DIRECTORY/env/bin/activate" >> ~/.bashrc
+# Update vagrant .bashrc to source virtualenv on each login of the vagrant user
+sudo su - vagrant -c "echo 'source /vagrant/env/bin/activate' >> ~/.bashrc"

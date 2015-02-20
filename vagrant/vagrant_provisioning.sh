@@ -33,6 +33,9 @@ virtualenv /vagrant/env
 # Install python dependencies
 sudo su - vagrant -c 'pip install -r requirements.txt'
 
+# Run django migrations
+sudo su - vagrant -c 'python acamar/manage.py migrate'
+
 # Update vagrant .bashrc to enable color in promptv
 sudo su - vagrant -c 'sed -i "1i force_color_prompt=yes" ~/.bashrc'
 

@@ -19,7 +19,7 @@ DATABASES = {
         'NAME': 'django',
         'USER': 'django',
         'PASSWORD': 'kI2ZJsv3Yi',
-        'HOST': '',
+        'HOST': 'localhost',
         'PORT': '',
         'CONN_MAX_AGE': 600,
     }

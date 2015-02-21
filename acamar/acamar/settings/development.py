@@ -9,7 +9,7 @@ DATABASES = {
         'NAME': 'vagrant',
         'USER': 'vagrant',
         'PASSWORD': '',
-        'HOST': '',
+        'HOST': 'localhost',
         'PORT': '',
         'CONN_MAX_AGE': 600,
     }

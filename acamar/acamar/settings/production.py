@@ -9,3 +9,18 @@ ADMINS = (
     ('Jacob Guzman', 'jgacosta@dojogeek.io '),
     ('Roberto Aguilar', 'raguilar@dojogeek.io '),
 )
+
+# Database
+# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': 'kI2ZJsv3Yi',
+        'HOST': '',
+        'PORT': '',
+        'CONN_MAX_AGE': 600,
+    }
+}

@@ -63,6 +63,7 @@ target/
 *.pyc
 __pycache__/
 local_settings.py
+acamar/static/
 
 
 ### grunt ###

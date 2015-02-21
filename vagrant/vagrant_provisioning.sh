@@ -31,7 +31,7 @@ sudo su - postgres -c 'createdb vagrant'
 virtualenv /vagrant/env
 
 # Install python dependencies
-sudo su - vagrant -c 'source /vagrant/env/bin/activate && pip install -r /vagrant/requirements.txt'
+sudo su - vagrant -c 'source /vagrant/env/bin/activate && pip install -r /vagrant/requirements/development.txt'
 
 # Run django migrations
 sudo su - vagrant -c 'source /vagrant/env/bin/activate && python /vagrant/acamar/manage.py migrate'

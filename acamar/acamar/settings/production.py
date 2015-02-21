@@ -24,3 +24,5 @@ DATABASES = {
         'CONN_MAX_AGE': 600,
     }
 }
+
+ALLOWED_HOSTS = ['104.131.49.161']

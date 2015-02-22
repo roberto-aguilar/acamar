@@ -6,6 +6,9 @@ apt-get update
 # Install python development packages
 apt-get install -y python-setuptools python-dev
 
+# Install django-extensions requirements
+apt-get install -y graphviz-dev graphviz pkg-config
+
 # Install pip python package manager
 easy_install pip
 

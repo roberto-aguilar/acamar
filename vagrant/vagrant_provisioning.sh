@@ -30,24 +30,17 @@ sudo su - postgres -c 'createuser -s vagrant'
 # Create vagrant database
 sudo su - postgres -c 'createdb vagrant'
 
-# Create a virtualenv
-virtualenv /vagrant/env
-
 # Install python dependencies
-sudo su - vagrant -c 'source /vagrant/env/bin/activate && pip install -r /vagrant/requirements/development.txt'
+pip install -r /vagrant/requirements/development.txt
 
 # Run django migrations
-sudo su - vagrant -c 'source /vagrant/env/bin/activate && python /vagrant/acamar/manage.py migrate'
+sudo su - vagrant -c 'python /vagrant/acamar/manage.py migrate'
 
 # Load database fixture
-sudo su - vagrant -c 'source /vagrant/env/bin/activate && python /vagrant/acamar/manage.py loaddata /vagrant/vagrant/db.json'
+sudo su - vagrant -c 'python /vagrant/acamar/manage.py loaddata /vagrant/vagrant/db.json'
 
 # Update vagrant .bashrc to enable color in promptv
 sudo su - vagrant -c 'sed -i "1i force_color_prompt=yes" ~/.bashrc'
 
 # Update vagrant .bashrc to chanage current directory to shared directory
 sudo su - vagrant -c 'echo "cd /vagrant" >> ~/.bashrc'
-
-# Update vagrant .bashrc to source virtualenv on each login of the vagrant user
-sudo su - vagrant -c 'echo "source /vagrant/env/bin/activate" >> ~/.bashrc'
-

@@ -12,10 +12,14 @@
         <link rel="stylesheet" href="{% static 'common/css/normalize.css' %}">
         <link rel="stylesheet" href="{% static 'common/css/main.css' %}">
         <link rel="stylesheet" href="{% static 'common/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'common/css/bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'common/css/common.css' %}">
         <script src="{% static 'common/js/vendor/modernizr.min.js' %}"></script>
         {% block extra-head-tags %}{% endblock %}
     </head>
     <body>
+
+        {% include 'common/navigation-bar.html' %}
 
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>

@@ -5,6 +5,7 @@ from rest_framework.test import APITestCase
 from rest_framework import status
 from api import views
 
+
 class UserTest(APITestCase):
 
     def setUp(self):
@@ -77,7 +78,7 @@ class UserTest(APITestCase):
     def test_update_user_without_authentication_provided(self):
         test_user = User.objects.create_user('test', 'test@test.com', 'test_password')
         url = self.users_url + '%s/' % test_user.pk
-        user_data_to_update =  {
+        user_data_to_update = {
             'username': 'test_username_updated',
             'groups': [],
             'first_name': 'test_first_name_updated',
@@ -92,7 +93,7 @@ class UserTest(APITestCase):
         self.login_with_session_authentication()
         test_user = User.objects.create_user('test_to_update', 'test_to_update@test.com', 'test_password_to_update')
         url = self.users_url + '%s/' % test_user.pk
-        user_data_to_update =  {
+        user_data_to_update = {
             'username': 'test_username_updated',
             'groups': [],
             'first_name': 'test_first_name_updated',
@@ -124,7 +125,7 @@ class UserTest(APITestCase):
         self.login_with_token_authentication()
         test_user = User.objects.create_user('test_to_update', 'test_to_update@test.com', 'test_password_to_update')
         url = self.users_url + '%s/' % test_user.pk
-        user_data_to_update =  {
+        user_data_to_update = {
             'username': 'test_username_updated',
             'groups': [],
             'first_name': 'test_first_name_updated',

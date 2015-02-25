@@ -149,3 +149,26 @@ class UserTest(APITestCase):
         self.assertEqual(response.data['email'], user_data_to_update['email'],
             'Expected response email "{0}" to be equal to request email "{1}"'.format(
                 response.data['email'], user_data_to_update['email']))
+
+    def test_delete_user_without_authentication_provided(self):
+        test_user = User.objects.create_user('test', 'test@test.com', 'test_password')
+        url = self.users_url + '%s/' % test_user.pk
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED,
+            'Expected Response Code 401, received {0} instead.'.format(response.status_code))
+
+    def test_delete_user_with_session_authentication(self):
+        self.login_with_session_authentication()
+        test_user = User.objects.create_user('test_to_delete', 'test_to_delete@test.com', 'test_password_to_delete')
+        url = self.users_url + '%s/' % test_user.pk
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT,
+            'Expected Response Code 204, received {0} instead.'.format(response.status_code))
+
+    def test_delete_user_with_token_authentication(self):
+        self.login_with_token_authentication()
+        test_user = User.objects.create_user('test_to_delete', 'test_to_delete@test.com', 'test_password_to_delete')
+        url = self.users_url + '%s/' % test_user.pk
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT,
+            'Expected Response Code 204, received {0} instead.'.format(response.status_code))

@@ -1,0 +1,5 @@
+[run]
+source = .
+omit =
+    acamar/settings/production.py
+    acamar/wsgi.py

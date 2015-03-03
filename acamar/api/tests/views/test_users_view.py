@@ -5,7 +5,7 @@ from rest_framework.test import APITestCase
 from rest_framework import status
 
 
-class UserTest(APITestCase):
+class UserViewSetTest(APITestCase):
 
     def setUp(self):
         self.users_url = reverse('user-list')

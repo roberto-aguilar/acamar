@@ -3,5 +3,6 @@ source = acamar/
 omit =
     acamar/acamar/settings/production.py
     acamar/acamar/wsgi.py
+    acamar/manage.py
     */migrations/*
     */*/__init__.py

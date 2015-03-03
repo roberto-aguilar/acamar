@@ -33,12 +33,12 @@ Before each commit ensure the following requirements are met
   * The coverage average must be above 90%
 
 ```sh
-coverage run manage.py test && coverage report
+coverage run acamar/manage.py test acamar && coverage report
 ```
 
 * Run source code checker
   * There should be no errors reported
 
 ```sh
-flake8
+flake8 acamar/
 ```

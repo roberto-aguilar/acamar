@@ -1,8 +1,6 @@
 -r base.txt
 django-extensions==1.5.0
-six==1.9.0
 pygraphviz==1.2
 django-debug-toolbar==1.2.2
-sqlparse==0.1.14
 coverage==3.7.1
 flake8==2.3.0

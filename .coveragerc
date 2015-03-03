@@ -1,0 +1,7 @@
+[run]
+source = acamar/
+omit =
+    acamar/acamar/settings/production.py
+    acamar/acamar/wsgi.py
+    */migrations/*
+    */*/__init__.py

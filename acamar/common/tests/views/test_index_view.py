@@ -16,10 +16,10 @@ class IndexViewTest(TestCase):
     def test_get_index_view_without_authentication_provided(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, self.HTTP_200_OK,
-            'Expected Response Code 200, received {0} instead.'.format(response.status_code))
+            'Expected Response Code 200, received {status_code} instead.'.format(status_code=response.status_code))
 
     def test_get_index_view_with_session_authentication(self):
         self.login_with_session_authentication()
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, self.HTTP_200_OK,
-            'Expected Response Code 200, received {0} instead.'.format(response.status_code))
+            'Expected Response Code 200, received {status_code} instead.'.format(status_code=response.status_code))

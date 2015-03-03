@@ -1,6 +1,7 @@
 Acamar
 ===========
 [![Build Status](https://travis-ci.org/DojoGeek/Acamar.svg?branch=master)](https://travis-ci.org/DojoGeek/Acamar)
+[![Coverage Status](https://coveralls.io/repos/DojoGeek/Acamar/badge.svg?branch=master)](https://coveralls.io/r/DojoGeek/Acamar?branch=master)
 
 Open source store management
 

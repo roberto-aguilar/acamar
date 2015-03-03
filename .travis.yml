@@ -7,8 +7,8 @@ install:
   - pip install coveralls
 before_script:
   - sudo su - postgres -c "createuser -s vagrant"
-script:
   - flake8 acamar/ --ignore=E128,F403
+script:
   - coverage run --source=acamar acamar/manage.py test acamar
 after_success:
   coveralls

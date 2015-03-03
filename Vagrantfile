@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 8000, host: 8000
 
   # Setup a provisioning shell script.
-  config.vm.provision :shell, path: "vagrant/vagrant_provisioning.sh"
+  config.vm.provision :shell, path: "vagrant/provisioning.sh"
 
   # Copy .gitconfig file to guest machine.
   config.vm.provision "file", source: "vagrant/.gitconfig", destination: ".gitconfig"

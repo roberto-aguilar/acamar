@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-# Store vagrant shared directory
+# Store vagrant shared directory for reference
 SHARED_DIRECTORY=/vagrant
+
+# Store project directory for reference
+PROJECT_DIRECTORY=$SHARED_DIRECTORY/acamar
 
 # Retrieve new lists of packages
 apt-get update
@@ -37,13 +40,10 @@ sudo su - postgres -c 'createdb vagrant'
 pip install -r /vagrant/requirements/development.txt
 
 # Run django migrations
-sudo su - vagrant -c "python $SHARED_DIRECTORY/acamar/manage.py migrate"
+sudo su - vagrant -c "python $PROJECT_DIRECTORY/manage.py migrate"
 
 # Load database fixture
-sudo su - vagrant -c "python $SHARED_DIRECTORY/acamar/manage.py loaddata $SHARED_DIRECTORY/vagrant/db.json"
+sudo su - vagrant -c "python $PROJECT_DIRECTORY/manage.py loaddata $SHARED_DIRECTORY/vagrant/db.json"
 
-# Update vagrant .bashrc to enable color in promptv
-sudo su - vagrant -c 'sed -i "1i force_color_prompt=yes" ~/.bashrc'
-
-# Update vagrant .bashrc to chanage current directory to acamar project
-sudo su - vagrant -c "echo 'cd $SHARED_DIRECTORY/acamar' >> ~/.bashrc"
+# Prepend .bashrc_additions file to guest operating system .bashrc
+sudo su - vagrant -c 'sed -i "1i source ~/.bashrc_additions" ~/.bashrc'

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Store vagrant directory location for reference
+VAGRANT_SHARED_DIRECTORY=/vagrant
+
+# Store project directory location for reference
+PROJECT_DIRECTORY=$VAGRANT_SHARED_DIRECTORY/acamar
+
+# Enable color in prompt
+force_color_prompt=yes
+
+# Move to project directory on each login
+cd $PROJECT_DIRECTORY

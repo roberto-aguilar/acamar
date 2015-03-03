@@ -14,12 +14,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Setup a provisioning shell script.
   config.vm.provision :shell, path: "vagrant/vagrant_provisioning.sh"
 
-  # Copy a .gitconfig file to guest machine.
-  #
+  # Copy .gitconfig file to guest machine.
   config.vm.provision "file", source: "vagrant/.gitconfig", destination: ".gitconfig"
 
-  # Copy a .vimrc file to guest machine.
-  #
+  # Copy .vimrc file to guest machine.
   config.vm.provision "file", source: "vagrant/.vimrc", destination: ".vimrc"
+
+  # Copy .bashrc_additions file to guest machine.
+  config.vm.provision "file", source: "vagrant/.bashrc_additions", destination: ".bashrc_additions"
 
 end

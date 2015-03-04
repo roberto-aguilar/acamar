@@ -1,9 +1,7 @@
 from django.views import generic
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
-from django.contrib import messages
 from django.contrib.auth import login
-from django import forms as django_forms
 from . import forms
 
 

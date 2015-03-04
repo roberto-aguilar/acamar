@@ -43,10 +43,10 @@ class AuthenticationForm(forms.Form):
         if username and password:
             user = authenticate(username=username, password=password)
             if user is None:
-                raise forms.ValidationError(
-                    'Contrasena incorrecta, intentelo nuevamente',
-                    code='incorrect_password'
-                )
+                self.add_error('password', forms.ValidationError(
+                    'Contrasena incorrecta',
+                    code='invalid_password'
+                    ))
             else:
                 self.user = user
 

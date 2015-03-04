@@ -24,6 +24,7 @@ class AuthenticationForm(forms.Form):
                     'username': username
                 }
             )
+
         if user.is_active is False:
             raise forms.ValidationError(
                 'La cuenta asociada al usuario "%(username)s" se encuentra desactivada',
@@ -32,9 +33,10 @@ class AuthenticationForm(forms.Form):
                     'username': username
                 }
             )
+
         return username
 
-    def clean_password(self):
+    def clean(self):
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
 
@@ -42,7 +44,7 @@ class AuthenticationForm(forms.Form):
             user = authenticate(username=username, password=password)
             if user is None:
                 raise forms.ValidationError(
-                    'Contrasena incorrecta',
+                    'Contrasena incorrecta, intentelo nuevamente',
                     code='incorrect_password'
                 )
             else:

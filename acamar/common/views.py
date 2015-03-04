@@ -1,7 +1,7 @@
 from django.views import generic
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from . import forms
 
 
@@ -27,3 +27,12 @@ class LoginFormView(generic.FormView):
             form_class = self.get_form_class()
             form = self.get_form(form_class)
             return self.render_to_response(self.get_context_data(form=form))
+
+
+class LogoutView(generic.RedirectView):
+    pattern_name = 'common:index'
+
+    def get(self, request, *args, **kwargs):
+        if self.request.user.is_authenticated():
+            logout(self.request)
+        return super(LogoutView, self).get(request, *args, **kwargs)

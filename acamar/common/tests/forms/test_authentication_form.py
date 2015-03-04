@@ -33,7 +33,7 @@ class TestAuthForm(TestCase):
         form = forms.AuthenticationForm(data=form_data)
         self.assertFalse(form.is_valid(),
             'Form expected to be invalid with username inactive provided')
-        self.assertEquals(form.errors['username'],
+        self.assertEqual(form.errors['username'],
             ['La cuenta asociada al usuario "test_username" se encuentra desactivada'],
             'Username inactive form field error expected')
 
@@ -71,7 +71,7 @@ class TestAuthForm(TestCase):
         form = forms.AuthenticationForm(data=form_data)
         self.assertTrue(form.is_valid(),
             'Form expected to be valid with correct data provided')
-        self.assertEquals(form.get_user(), test_user,
+        self.assertEqual(form.get_user(), test_user,
             'Form returned user expected to be equal to user provided')
 
     def test_form_get_user_with_user_that_does_not_exist(self):

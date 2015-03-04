@@ -29,4 +29,7 @@ class AuthenticationForm(forms.Form):
         return self.cleaned_data
 
     def get_user(self):
-        return self.user
+        if self.is_valid():
+            return self.user
+        else:
+            return None

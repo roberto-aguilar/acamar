@@ -73,3 +73,14 @@ class TestAuthForm(TestCase):
             'Form expected to be valid with correct data provided')
         self.assertEquals(form.get_user(), test_user,
             'Form returned user expected to be equal to user provided')
+
+    def test_form_get_user_with_user_that_does_not_exist(self):
+        form_data = {
+            'username': 'test_username',
+            'password': 'test_password'
+        }
+        form = forms.AuthenticationForm(data=form_data)
+        self.assertFalse(form.is_valid(),
+            'Form expected to be invalid with username that does not exists provided')
+        self.assertIsNone(form.get_user(),
+            'None expected to be returned on invalid form')

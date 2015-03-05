@@ -25,6 +25,8 @@ class TestAuthForm(TestCase):
         form = forms.AuthenticationForm(data=form_data)
         self.assertTrue(form.is_valid(),
             'Form expected to ve valid with correct data provided')
+        self.assertIn('user_authenticated', form.cleaned_data,
+            'Expected user authenticated to be in form cleaned data')
 
     def test_form_is_valid_with_inactive_user(self):
         test_user = User.objects.create_user('test_username', 'test@test.com', 'test_password')
@@ -76,26 +78,3 @@ class TestAuthForm(TestCase):
         self.assertNotIn('username', form.errors,
             'Expected username not to be in form field errors, received instead {errors}'.format(
                 errors=form.errors.get('username')))
-
-    def test_form_get_user(self):
-        test_user = User.objects.create_user('test_username', 'test@test.com', 'test_password')
-        form_data = {
-            'username': 'test_username',
-            'password': 'test_password'
-        }
-        form = forms.AuthenticationForm(data=form_data)
-        self.assertTrue(form.is_valid(),
-            'Form expected to be valid with correct data provided')
-        self.assertEqual(form.get_user(), test_user,
-            'Form returned user expected to be equal to user provided')
-
-    def test_form_get_user_with_user_that_does_not_exist(self):
-        form_data = {
-            'username': 'test_username',
-            'password': 'test_password'
-        }
-        form = forms.AuthenticationForm(data=form_data)
-        self.assertFalse(form.is_valid(),
-            'Form expected to be invalid with username that does not exists provided')
-        self.assertIsNone(form.get_user(),
-            'None expected to be returned on invalid form')

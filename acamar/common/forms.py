@@ -17,19 +17,13 @@ class AuthenticationForm(forms.Form):
         password = self.cleaned_data.get('password')
 
         if username and password:
-            user = authenticate(username=username, password=password)
-            if user is None:
+            user_authenticated = authenticate(username=username, password=password)
+            if user_authenticated is None:
                 self.add_error('password', forms.ValidationError(
                     'Contraseña incorrecta',
                     code='invalid_password'
                 ))
             else:
-                self.user = user
+                self.cleaned_data['user_authenticated'] = user_authenticated
 
         return self.cleaned_data
-
-    def get_user(self):
-        if self.is_valid():
-            return self.user
-        else:
-            return None

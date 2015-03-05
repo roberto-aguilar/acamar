@@ -15,7 +15,7 @@ class LoginFormView(generic.FormView):
     template_name = 'common/login.html'
 
     def form_valid(self, form):
-        login(self.request, form.get_user())
+        login(self.request, form.cleaned_data['user_authenticated'])
         url_to_redirect = reverse(self.success_url)
         return redirect(url_to_redirect)
 

@@ -1,4 +1,4 @@
-from .base import *
+from .base import *  # noqa
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

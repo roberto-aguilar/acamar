@@ -76,7 +76,7 @@ class UserViewSetTest(APITestCase):
 
     def test_update_user_without_authentication_provided(self):
         test_user = User.objects.create_user('test', 'test@test.com', 'test_password')
-        url = self.users_url + '%s/' % test_user.pk
+        url = reverse('user-detail', args=[test_user.pk])
         user_data_to_update = {
             'username': 'test_username_updated',
             'groups': [],
@@ -91,7 +91,7 @@ class UserViewSetTest(APITestCase):
     def test_update_user_with_session_authentication(self):
         self.login_with_session_authentication()
         test_user = User.objects.create_user('test_to_update', 'test_to_update@test.com', 'test_password_to_update')
-        url = self.users_url + '%s/' % test_user.pk
+        url = reverse('user-detail', args=[test_user.pk])
         user_data_to_update = {
             'username': 'test_username_updated',
             'groups': [],
@@ -121,7 +121,7 @@ class UserViewSetTest(APITestCase):
     def test_update_user_with_token_authentication(self):
         self.login_with_token_authentication()
         test_user = User.objects.create_user('test_to_update', 'test_to_update@test.com', 'test_password_to_update')
-        url = self.users_url + '%s/' % test_user.pk
+        url = reverse('user-detail', args=[test_user.pk])
         user_data_to_update = {
             'username': 'test_username_updated',
             'groups': [],
@@ -150,7 +150,7 @@ class UserViewSetTest(APITestCase):
 
     def test_delete_user_without_authentication_provided(self):
         test_user = User.objects.create_user('test', 'test@test.com', 'test_password')
-        url = self.users_url + '%s/' % test_user.pk
+        url = reverse('user-detail', args=[test_user.pk])
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED,
             'Expected Response Code 401, received {status_code} instead.'.format(status_code=response.status_code))
@@ -158,7 +158,7 @@ class UserViewSetTest(APITestCase):
     def test_delete_user_with_session_authentication(self):
         self.login_with_session_authentication()
         test_user = User.objects.create_user('test_to_delete', 'test_to_delete@test.com', 'test_password_to_delete')
-        url = self.users_url + '%s/' % test_user.pk
+        url = reverse('user-detail', args=[test_user.pk])
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT,
             'Expected Response Code 204, received {status_code} instead.'.format(status_code=response.status_code))
@@ -166,7 +166,7 @@ class UserViewSetTest(APITestCase):
     def test_delete_user_with_token_authentication(self):
         self.login_with_token_authentication()
         test_user = User.objects.create_user('test_to_delete', 'test_to_delete@test.com', 'test_password_to_delete')
-        url = self.users_url + '%s/' % test_user.pk
+        url = reverse('user-detail', args=[test_user.pk])
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT,
             'Expected Response Code 204, received {status_code} instead.'.format(status_code=response.status_code))

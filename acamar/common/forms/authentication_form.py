@@ -1,13 +1,13 @@
 # -*- coding: utf8 -*-
 from django import forms
 from django.contrib.auth import authenticate
-from common.validators import authentication_validators
+from common import validators
 
 
 class AuthenticationForm(forms.Form):
     username = forms.CharField(max_length=30, label='Usuario', error_messages={
         'required': 'Este campo es requerido'
-    }, validators=[authentication_validators.validate_user_exists, authentication_validators.validate_user_is_active])
+    }, validators=[validators.validate_user_exists, validators.validate_user_is_active])
     password = forms.CharField(max_length=128, label='Password', error_messages={
         'required': 'Este campo es requerido'
     }, widget=forms.PasswordInput)

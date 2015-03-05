@@ -1,5 +1,5 @@
 from django.test import TestCase
-from common.forms import create_user_form
+from common import forms
 
 
 class TestRegisterForm(TestCase):
@@ -9,7 +9,7 @@ class TestRegisterForm(TestCase):
             'password': 'password',
             'confirm_password': 'mismatched_password'
         }
-        form = create_user_form.CreateUserForm(data=form_data)
+        form = forms.CreateUserForm(data=form_data)
         self.assertFalse(form.is_valid(),
             'Expected form invalid with mismatched passwords provided')
         self.assertIn('password', form.errors,
@@ -26,7 +26,7 @@ class TestRegisterForm(TestCase):
             'last_name': '',
             'email': ''
         }
-        form = create_user_form.CreateUserForm(data=form_data)
+        form = forms.CreateUserForm(data=form_data)
         self.assertFalse(form.is_valid(),
             'Expected form invalid without required fields provided')
         self.assertIn('first_name', form.errors,

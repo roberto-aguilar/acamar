@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 from django.test import TestCase
 from django.contrib.auth.models import User
-from common.forms import authentication_form
+from common import forms
 
 
 class TestAuthForm(TestCase):
@@ -12,7 +12,7 @@ class TestAuthForm(TestCase):
             'username': 'test_username',
             'password': 'test_password'
         }
-        form = authentication_form.AuthenticationForm(data=form_data)
+        form = forms.AuthenticationForm(data=form_data)
         self.assertTrue(form.is_valid(),
             'Form expected to ve valid with correct data provided')
         self.assertIn('user_authenticated', form.cleaned_data,
@@ -26,7 +26,7 @@ class TestAuthForm(TestCase):
             'username': 'test_username',
             'password': 'test_password'
         }
-        form = authentication_form.AuthenticationForm(data=form_data)
+        form = forms.AuthenticationForm(data=form_data)
         self.assertFalse(form.is_valid(),
             'Form expected to be invalid with username inactive provided')
         self.assertEqual(form.errors['username'],
@@ -42,7 +42,7 @@ class TestAuthForm(TestCase):
             'username': 'test_username',
             'password': 'test_password'
         }
-        form = authentication_form.AuthenticationForm(data=form_data)
+        form = forms.AuthenticationForm(data=form_data)
         self.assertFalse(form.is_valid(),
             'Form expected to be invalid with username that does not exists provided')
         self.assertEqual(form.errors['username'],
@@ -59,7 +59,7 @@ class TestAuthForm(TestCase):
             'username': 'test_username',
             'password': 'invalid_password'
         }
-        form = authentication_form.AuthenticationForm(data=form_data)
+        form = forms.AuthenticationForm(data=form_data)
         self.assertFalse(form.is_valid(),
             'Form expected to be invalid with incorrect password provided')
         self.assertEqual(form.errors['password'],

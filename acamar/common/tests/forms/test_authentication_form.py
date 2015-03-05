@@ -7,7 +7,7 @@ from common import forms
 class TestAuthForm(TestCase):
 
     def test_form_is_valid_without_data(self):
-        form_data = {}
+        form_data = dict()
         form = forms.AuthenticationForm(data=form_data)
         self.assertFalse(form.is_valid(),
             'Form expected to be invalid without data provided')

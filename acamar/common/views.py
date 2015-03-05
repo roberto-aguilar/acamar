@@ -30,6 +30,7 @@ class LoginFormView(generic.FormView):
 
 
 class LogoutView(generic.RedirectView):
+    permanent = False
     pattern_name = 'common:index'
 
     def get(self, request, *args, **kwargs):

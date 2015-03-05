@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout
 from . import forms
 
 
-class IndexTemplateView(generic.TemplateView):
+class IndexView(generic.TemplateView):
     template_name = 'common/index.html'
 
 

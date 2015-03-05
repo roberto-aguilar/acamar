@@ -1,4 +1,3 @@
-# -*- coding: utf8 -*-
 from django.test import TestCase
 from django.contrib.auth.models import User
 from common import forms
@@ -29,10 +28,8 @@ class TestAuthForm(TestCase):
         form = forms.AuthenticationForm(data=form_data)
         self.assertFalse(form.is_valid(),
             'Form expected to be invalid with username inactive provided')
-        self.assertEqual(form.errors['username'],
-            ['La cuenta asociada al usuario "{username}" se encuentra desactivada'.format(
-                username=form_data['username'])],
-            'Username inactive form field error expected')
+        self.assertIn('username', form.errors,
+            'Expected username form field to be in form errors')
         self.assertNotIn('password', form.errors,
             'Expected password not to be in form field errors, received instead {errors}'.format(
                 errors=form.errors.get('password')))
@@ -45,10 +42,8 @@ class TestAuthForm(TestCase):
         form = forms.AuthenticationForm(data=form_data)
         self.assertFalse(form.is_valid(),
             'Form expected to be invalid with username that does not exists provided')
-        self.assertEqual(form.errors['username'],
-            ['No se encontro una cuenta asociada al usuario "{username}"'.format(
-                username=form_data['username'])],
-            'Username not found form field error expected')
+        self.assertIn('username', form.errors,
+            'Expected username form field to be in form errors')
         self.assertNotIn('password', form.errors,
             'Expected password not to be in form field errors, received instead {errors}'.format(
                 errors=form.errors.get('password')))
@@ -62,9 +57,8 @@ class TestAuthForm(TestCase):
         form = forms.AuthenticationForm(data=form_data)
         self.assertFalse(form.is_valid(),
             'Form expected to be invalid with incorrect password provided')
-        self.assertEqual(form.errors['password'],
-            [u'Contraseña incorrecta'],
-            'Password incorrect form field error expected')
+        self.assertIn('password', form.errors,
+            'Expected password form field to be in form errors')
         self.assertNotIn('username', form.errors,
             'Expected username not to be in form field errors, received instead {errors}'.format(
                 errors=form.errors.get('username')))

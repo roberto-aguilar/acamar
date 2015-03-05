@@ -7,7 +7,7 @@ def validate_user_exists(username):
         User.objects.get(username=username)
     except User.DoesNotExist:
         raise ValidationError(
-            'No se encontro una cuenta asociada al usuario "%(username)s"',
+            'The "%(username)s" account does not exists',
             code='user_not_found',
             params={
                 'username': username
@@ -20,7 +20,7 @@ def validate_user_is_active(username):
         user = User.objects.get(username=username)
         if user.is_active is False:
             raise ValidationError(
-                'La cuenta asociada al usuario "%(username)s" se encuentra desactivada',
+                'The account with username "%(username)s" is inactive',
                 code='user_not_active',
                 params={
                     'username': username

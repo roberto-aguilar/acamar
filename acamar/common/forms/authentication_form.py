@@ -1,4 +1,3 @@
-# -*- coding: utf8 -*-
 from django import forms
 from django.contrib.auth import authenticate
 from common import validators
@@ -20,8 +19,8 @@ class AuthenticationForm(forms.Form):
             user_authenticated = authenticate(username=username, password=password)
             if user_authenticated is None:
                 self.add_error('password', forms.ValidationError(
-                    'Contraseña incorrecta',
-                    code='invalid_password'
+                    'Incorrect password',
+                    code='incorrect_password'
                 ))
             else:
                 self.cleaned_data['user_authenticated'] = user_authenticated

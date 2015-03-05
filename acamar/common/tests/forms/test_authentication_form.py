@@ -6,16 +6,6 @@ from common.forms import authentication_form
 
 class TestAuthForm(TestCase):
 
-    def test_form_is_valid_without_data(self):
-        form_data = dict()
-        form = authentication_form.AuthenticationForm(data=form_data)
-        self.assertFalse(form.is_valid(),
-            'Form expected to be invalid without data provided')
-        self.assertIn('username', form.errors,
-            'Expected username to be in form field errors')
-        self.assertIn('password', form.errors,
-            'Expected password to be in form field errors')
-
     def test_form_is_valid_with_correct_data(self):
         User.objects.create_user('test_username', 'test@test.com', 'test_password')
         form_data = {

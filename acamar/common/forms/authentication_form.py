@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 from django import forms
 from django.contrib.auth import authenticate
-from . import validators
+from common import validators
 
 
 class AuthenticationForm(forms.Form):

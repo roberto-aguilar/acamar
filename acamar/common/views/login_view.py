@@ -2,11 +2,11 @@ from django.views import generic
 from django.core.urlresolvers import reverse
 from django.contrib.auth import login
 from django.shortcuts import redirect
-from common import forms
+from common.forms import authentication_form
 
 
 class LoginView(generic.FormView):
-    form_class = forms.AuthenticationForm
+    form_class = authentication_form.AuthenticationForm
     success_url = 'common:index'
     template_name = 'common/login.html'
 

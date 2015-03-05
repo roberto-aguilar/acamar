@@ -16,7 +16,6 @@ class TestLoginView(TestCase):
                 status_code=response.status_code))
 
     def test_login_view_with_user_authenticated(self):
-        HTTP_302_FOUND = 302
         index_url = reverse('common:index')
         User.objects.create_user('test_username', 'test@test.com', 'test_password')
         self.client.login(username='test_username', password='test_password')
@@ -25,7 +24,6 @@ class TestLoginView(TestCase):
             msg_prefix='Expected response redirect on already authenticated users')
 
     def test_login_view_with_authentication_data_provided(self):
-        HTTP_302_FOUND = 302
         User.objects.create_user('test_username', 'test@test.com', 'test_password')
         index_url = reverse('common:index')
         form_data = {

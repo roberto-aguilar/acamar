@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from django.contrib.auth import SESSION_KEY
 
 
 class TestLogoutView(TestCase):
@@ -23,8 +24,8 @@ class TestLogoutView(TestCase):
             msg_prefix='Expected response redirect to index view with user not authenticated')
         """
         Given that test client response is not a real HttpResponse, the is_authenticated() method is achieved
-        looking for the key '_auth_user_id' in the test client session dictionary. If is not, then the user is
-        not authenticated anymore.
+        looking for the SESSION_KEY in the test client session dictionary. If is not, then the user is
+        not authenticated.
         """
-        self.assertNotIn('_auth_user_id', self.client.session,
+        self.assertNotIn(SESSION_KEY, self.client.session,
             'Expected user not to be authenticated')

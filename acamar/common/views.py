@@ -9,7 +9,7 @@ class IndexTemplateView(generic.TemplateView):
     template_name = 'common/index.html'
 
 
-class LoginFormView(generic.FormView):
+class LoginView(generic.FormView):
     form_class = forms.AuthenticationForm
     success_url = 'common:index'
     template_name = 'common/login.html'

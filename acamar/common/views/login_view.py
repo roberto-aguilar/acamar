@@ -1,12 +1,8 @@
 from django.views import generic
 from django.core.urlresolvers import reverse
+from django.contrib.auth import login
 from django.shortcuts import redirect
-from django.contrib.auth import login, logout
-from . import forms
-
-
-class IndexView(generic.TemplateView):
-    template_name = 'common/index.html'
+from common import forms
 
 
 class LoginView(generic.FormView):
@@ -27,13 +23,3 @@ class LoginView(generic.FormView):
             form_class = self.get_form_class()
             form = self.get_form(form_class)
             return self.render_to_response(self.get_context_data(form=form))
-
-
-class LogoutView(generic.RedirectView):
-    permanent = False
-    pattern_name = 'common:index'
-
-    def get(self, request, *args, **kwargs):
-        if self.request.user.is_authenticated():
-            logout(self.request)
-        return super(LogoutView, self).get(request, *args, **kwargs)

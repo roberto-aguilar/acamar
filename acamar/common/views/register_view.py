@@ -10,4 +10,4 @@ class RegisterView(generic.CreateView):
     form_class = forms.CreateUserForm
 
     def get_success_url(self):
-        return reverse('common:index')
+        return reverse('common:login')

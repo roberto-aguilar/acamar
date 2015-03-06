@@ -8,7 +8,7 @@ class TestRegisterView(TestCase):
         self.register_url = reverse('common:register')
 
     def test_register_view_with_correct_data_provided(self):
-        success_url = reverse('common:index')
+        success_url = reverse('common:login')
         form_data = {
             'username': 'test_username',
             'password': 'test_password',

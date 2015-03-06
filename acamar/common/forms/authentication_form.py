@@ -1,15 +1,13 @@
 from django import forms
 from django.contrib.auth import authenticate
+from django.utils.translation import ugettext as _
 from common import validators
 
 
 class AuthenticationForm(forms.Form):
-    username = forms.CharField(max_length=30, label='Usuario', error_messages={
-        'required': 'Este campo es requerido'
-    }, validators=[validators.validate_user_exists, validators.validate_user_is_active])
-    password = forms.CharField(max_length=128, label='Password', error_messages={
-        'required': 'Este campo es requerido'
-    }, widget=forms.PasswordInput)
+    username = forms.CharField(max_length=30, validators=[validators.validate_user_exists,
+        validators.validate_user_is_active], label=_('Username'))
+    password = forms.CharField(max_length=128, widget=forms.PasswordInput, label=_('Password'))
 
     def clean(self):
         username = self.cleaned_data.get('username')
@@ -19,7 +17,7 @@ class AuthenticationForm(forms.Form):
             user_authenticated = authenticate(username=username, password=password)
             if user_authenticated is None:
                 self.add_error('password', forms.ValidationError(
-                    'Incorrect password',
+                    _('Incorrect password'),
                     code='incorrect_password'
                 ))
             else:

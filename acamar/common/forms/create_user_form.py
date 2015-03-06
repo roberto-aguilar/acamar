@@ -1,13 +1,17 @@
 from django import forms
+from django.utils.translation import ugettext as _
 from django.contrib.auth.models import User
 
 
 class CreateUserForm(forms.ModelForm):
-    confirm_password = forms.CharField(widget=forms.PasswordInput)
+    confirm_password = forms.CharField(widget=forms.PasswordInput, label=_('Confirm password'))
 
     class Meta:
         model = User
         fields = ['username', 'password', 'confirm_password', 'first_name', 'last_name', 'email']
+        labels = {
+            'email': _('Email address')
+        }
         widgets = {
             'password': forms.PasswordInput
         }
@@ -25,12 +29,12 @@ class CreateUserForm(forms.ModelForm):
         if password and confirm_password:
             if password != confirm_password:
                 self.add_error('password', forms.ValidationError(
-                    'passwords does not match',
+                    _('Passwords does not match'),
                     code='password_mismatch'
 
                 ))
                 self.add_error('confirm_password', forms.ValidationError(
-                    'passwords does not match',
+                    _('Passwords does not match'),
                     code='password_mismatch'
                 ))
 

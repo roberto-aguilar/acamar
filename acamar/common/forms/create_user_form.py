@@ -1,17 +1,17 @@
 from django import forms
-from django.utils.translation import ugettext as _
-from django.utils.translation import ugettext_lazy as __
+from django.utils.translation import ugettext, ugettext_lazy
 from django.contrib.auth.models import User
+from common import validators
 
 
 class CreateUserForm(forms.ModelForm):
-    confirm_password = forms.CharField(widget=forms.PasswordInput, label=__('Confirm password'))
+    confirm_password = forms.CharField(widget=forms.PasswordInput, label=ugettext_lazy('Confirm password'))
 
     class Meta:
         model = User
         fields = ['username', 'password', 'confirm_password', 'first_name', 'last_name', 'email']
         labels = {
-            'email': __('Email address')
+            'email': ugettext_lazy('Email address')
         }
         widgets = {
             'password': forms.PasswordInput
@@ -19,6 +19,8 @@ class CreateUserForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(CreateUserForm, self).__init__(*args, **kwargs)
+        self.fields['username'].validators.append(validators.validate_username_does_not_exist)
+        self.fields['username'].help_text = ''
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
         self.fields['email'].required = True
@@ -30,12 +32,12 @@ class CreateUserForm(forms.ModelForm):
         if password and confirm_password:
             if password != confirm_password:
                 self.add_error('password', forms.ValidationError(
-                    _('Passwords does not match'),
+                    ugettext('Passwords does not match'),
                     code='password_mismatch'
 
                 ))
                 self.add_error('confirm_password', forms.ValidationError(
-                    _('Passwords does not match'),
+                    ugettext('Passwords does not match'),
                     code='password_mismatch'
                 ))
 

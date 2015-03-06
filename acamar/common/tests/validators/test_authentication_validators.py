@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from common import validators
 
 
-class TestValidators(TestCase):
+class TestAuthenticationValidators(TestCase):
 
     def test_validate_user_exists_with_user_that_doesnt_exist(self):
         expected_exception_code = 'user_not_found'

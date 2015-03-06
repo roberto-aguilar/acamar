@@ -1,14 +1,13 @@
 from django import forms
 from django.contrib.auth import authenticate
-from django.utils.translation import ugettext as _
-from django.utils.translation import ugettext_lazy as __
+from django.utils.translation import ugettext, ugettext_lazy
 from common import validators
 
 
 class AuthenticationForm(forms.Form):
     username = forms.CharField(max_length=30, validators=[validators.validate_user_exists,
-        validators.validate_user_is_active], label=__('Username'))
-    password = forms.CharField(max_length=128, widget=forms.PasswordInput, label=__('Password'))
+        validators.validate_user_is_active], label=ugettext_lazy('Username'))
+    password = forms.CharField(max_length=128, widget=forms.PasswordInput, label=ugettext_lazy('Password'))
 
     def clean(self):
         username = self.cleaned_data.get('username')
@@ -18,7 +17,7 @@ class AuthenticationForm(forms.Form):
             user_authenticated = authenticate(username=username, password=password)
             if user_authenticated is None:
                 self.add_error('password', forms.ValidationError(
-                    _('Incorrect password'),
+                    ugettext('Incorrect password'),
                     code='incorrect_password'
                 ))
             else:

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 13:10+0000\n"
+"POT-Creation-Date: 2015-03-06 13:43+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -13,69 +13,71 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: forms/authentication_form.py:9
+#: common/forms/authentication_form.py:9
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: forms/authentication_form.py:10
+#: common/forms/authentication_form.py:10
 msgid "Password"
 msgstr "Contraseña"
 
-#: forms/authentication_form.py:20
+#: common/forms/authentication_form.py:20
 msgid "Incorrect password"
 msgstr "Contraseña incorrecta"
 
-#: forms/create_user_form.py:7
+#: common/forms/create_user_form.py:7
 msgid "Confirm password"
 msgstr "Confirmar contraseña"
 
-#: forms/create_user_form.py:13
+#: common/forms/create_user_form.py:13
 msgid "Email address"
 msgstr "Dirección de correo electrónico"
 
-#: forms/create_user_form.py:32 forms/create_user_form.py:37
+#: common/forms/create_user_form.py:32 common/forms/create_user_form.py:37
 msgid "Passwords does not match"
 msgstr "Las contraseñas no coinciden"
 
-#: templates/common/create_user.html:16 templates/common/index.html:12
-#: templates/common/navigation-bar.html:35
+#: common/templates/common/create_user.html:16
+#: common/templates/common/index.html:12
+#: common/templates/common/navigation-bar.html:35
 msgid "Register"
 msgstr "Registrarse"
 
-#: templates/common/index.html:10
+#: common/templates/common/index.html:10
 msgid "Welcome!"
 msgstr "¡Bienvenido!"
 
-#: templates/common/index.html:11
+#: common/templates/common/index.html:11
 msgid "Acamar is an open source project for sales management"
 msgstr "Acamar es un proyecto de código abierto para la gestión de ventas"
 
-#: templates/common/login.html:16 templates/common/navigation-bar.html:32
+#: common/templates/common/login.html:16
+#: common/templates/common/navigation-bar.html:32
 msgid "Login"
 msgstr "Iniciar sesión"
 
-#: templates/common/navigation-bar.html:26
+#: common/templates/common/navigation-bar.html:26
 msgid "Logout"
 msgstr "Cerrar sesión"
 
-#: urls.py:8
+#: common/urls.py:8
 msgid "^accounts/login/$"
 msgstr "cuentas/iniciar-sesion/"
 
-#: urls.py:9
+#: common/urls.py:9
 msgid "^accounts/logout/$"
 msgstr "cuentas/cerrar-sesion/"
 
-#: urls.py:10
+#: common/urls.py:10
 msgid "^accounts/register/$"
 msgstr "cuentas/registrarse/"
 
-#: validators/authentication_validators.py:11
+#: common/validators/authentication_validators.py:11
 #, python-format
 msgid "The \"%(username)s\" account does not exists"
 msgstr "La cuenta con el nombre de usuario \"%(username)s\" no existe"
 
-#: validators/authentication_validators.py:24
+#: common/validators/authentication_validators.py:24
 #, python-format
 msgid "The account with username \"%(username)s\" is inactive"
 msgstr "La cuenta con el nombre de usuario \"%(username)s\" esta inactiva"

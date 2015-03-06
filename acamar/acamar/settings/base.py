@@ -98,3 +98,7 @@ REST_FRAMEWORK = {
     ),
     'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 }
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, '../common/locale/')
+)

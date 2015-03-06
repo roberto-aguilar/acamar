@@ -1,16 +1,17 @@
 from django import forms
 from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as __
 from django.contrib.auth.models import User
 
 
 class CreateUserForm(forms.ModelForm):
-    confirm_password = forms.CharField(widget=forms.PasswordInput, label=_('Confirm password'))
+    confirm_password = forms.CharField(widget=forms.PasswordInput, label=__('Confirm password'))
 
     class Meta:
         model = User
         fields = ['username', 'password', 'confirm_password', 'first_name', 'last_name', 'email']
         labels = {
-            'email': _('Email address')
+            'email': __('Email address')
         }
         widgets = {
             'password': forms.PasswordInput

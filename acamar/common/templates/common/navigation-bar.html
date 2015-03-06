@@ -14,7 +14,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="{% url 'common:index' %}">Home</a>
+                    <a href="{% url 'common:index' %}">{% trans 'Home' %}</a>
                 </li>
             </ul><!-- navbar-nav -->
             <ul class="nav navbar-nav navbar-right">
@@ -35,6 +35,9 @@
                     <a href="{% url 'common:register' %}">{% trans 'Register' %}</a>
                 </li>
                 {% endif %}
+                <li>
+                    <a href="{% url  'common:language' %}">{% trans 'Language' %}</a>
+                </li>
             </ul><!-- navbar-nav -->
         </div><!-- nav-collapse -->
     </div><!-- navbar -->

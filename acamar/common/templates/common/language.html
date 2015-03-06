@@ -1,0 +1,30 @@
+{% extends 'common/base.html' %}
+
+{% load i18n %}
+
+{% load bootstrap3 %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input name="next" type="hidden" value="{{ redirect_to }}" />
+                    <label for="language" class="control-label">{% trans 'Language' %}</label>
+                    <select id="language" class="form-control" name="language">
+                        <option value="es">Español</option>
+                        <option value="en">English</option>
+                    </select><!-- language -->
+                </div><!-- form-group -->
+                <div class="form-group">
+                    <input class="btn btn-success" type="submit" value="{% trans 'Set language' %}" />
+                </div><!-- form-group -->
+            </form>
+        </div><!-- col-md -->
+    </div><!-- row -->
+</div><!-- container -->
+
+{% endblock %}

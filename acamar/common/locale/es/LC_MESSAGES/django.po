@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 13:43+0000\n"
+"POT-Creation-Date: 2015-03-06 14:42+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -51,26 +51,43 @@ msgstr "¡Bienvenido!"
 msgid "Acamar is an open source project for sales management"
 msgstr "Acamar es un proyecto de código abierto para la gestión de ventas"
 
+#: common/templates/common/language.html:16
+#: common/templates/common/navigation-bar.html:39
+msgid "Language"
+msgstr "Lenguaje"
+
+#: common/templates/common/language.html:23
+msgid "Set language"
+msgstr "Establecer lenguaje"
+
 #: common/templates/common/login.html:16
 #: common/templates/common/navigation-bar.html:32
 msgid "Login"
 msgstr "Iniciar sesión"
+
+#: common/templates/common/navigation-bar.html:17
+msgid "Home"
+msgstr "Página de inicio"
 
 #: common/templates/common/navigation-bar.html:26
 msgid "Logout"
 msgstr "Cerrar sesión"
 
 #: common/urls.py:8
-msgid "^accounts/login/$"
-msgstr "cuentas/iniciar-sesion/"
+msgid "^language/"
+msgstr "^lenguaje/"
 
 #: common/urls.py:9
-msgid "^accounts/logout/$"
-msgstr "cuentas/cerrar-sesion/"
+msgid "^accounts/login/$"
+msgstr "^cuentas/iniciar-sesion/$"
 
 #: common/urls.py:10
+msgid "^accounts/logout/$"
+msgstr "^cuentas/cerrar-sesion/$"
+
+#: common/urls.py:11
 msgid "^accounts/register/$"
-msgstr "cuentas/registrarse/"
+msgstr "^cuentas/registrarse/$"
 
 #: common/validators/authentication_validators.py:11
 #, python-format

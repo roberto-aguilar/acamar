@@ -12,7 +12,7 @@
             <form action="{% url 'set_language' %}" method="post">
                 {% csrf_token %}
                 <div class="form-group">
-                    <input name="next" type="hidden" value="{{ redirect_to }}" />
+                    <input name="next" type="hidden" value="{{ redirect_to_url }}" />
                     <label for="language" class="control-label">{% trans 'Language' %}</label>
                     <select id="language" class="form-control" name="language">
                         <option value="es">Español</option>

@@ -1,0 +1,25 @@
+# This file is distributed under the same license as the PACKAGE package.
+# Roberto Aguilar <raguilar@dojogeek.io>, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: raguilar@dojogeek.io\n"
+"POT-Creation-Date: 2015-03-06 03:11+0000\n"
+"PO-Revision-Date: 2015-03-06 03:11+0000\n"
+"Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
+"Language: Español\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: validators/authentication_validators.py:11
+#, python-format
+msgid "The \"%(username)s\" account does not exists"
+msgstr "La cuenta con el usuario \"%(username)s\" no existe"
+
+#: validators/authentication_validators.py:24
+#, python-format
+msgid "The account with username \"%(username)s\" is inactive"
+msgstr "La cuenta con el usuario \"%(username)s\" esta inactiva"

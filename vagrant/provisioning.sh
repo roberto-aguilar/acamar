@@ -15,6 +15,9 @@ apt-get install -y python-setuptools python-dev > /dev/null
 echo 'Installing Django extensions dependencies'
 apt-get install -y graphviz-dev graphviz pkg-config > /dev/null
 
+echo 'Installing Django translation tools'
+apt-get install -y gettext
+
 echo 'Installing pip python package manager'
 easy_install pip > /dev/null
 

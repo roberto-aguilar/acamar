@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 06:35+0000\n"
+"POT-Creation-Date: 2015-03-06 13:10+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -57,6 +57,18 @@ msgstr "Iniciar sesión"
 #: templates/common/navigation-bar.html:26
 msgid "Logout"
 msgstr "Cerrar sesión"
+
+#: urls.py:8
+msgid "^accounts/login/$"
+msgstr "cuentas/iniciar-sesion/"
+
+#: urls.py:9
+msgid "^accounts/logout/$"
+msgstr "cuentas/cerrar-sesion/"
+
+#: urls.py:10
+msgid "^accounts/register/$"
+msgstr "cuentas/registrarse/"
 
 #: validators/authentication_validators.py:11
 #, python-format

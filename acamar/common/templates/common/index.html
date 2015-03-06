@@ -1,13 +1,15 @@
 {% extends 'common/base.html' %}
 
+{% load i18n %}
+
 {% block content %}
 
 <div class="container">
     <div class="jumbotron">
         <div class="container">
-            <h1>¡Bienvenido!</h1>
-            <p>Acamar es un proyecto de código abierto para la gestión de puntos de venta.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Registrate &raquo;</a></p>
+            <h1>{% trans 'Welcome!' %}</h1>
+            <p>{% trans 'Acamar is an open source project for sales management' %}</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">{% trans 'Register' %}</a></p>
         </div><!-- container -->
     </div><!-- jumbotron -->
 </div><!-- container -->

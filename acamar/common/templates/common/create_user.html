@@ -1,5 +1,7 @@
 {% extends 'common/base.html' %}
 
+{% load i18n %}
+
 {% load bootstrap3 %}
 
 {% block content %}
@@ -11,7 +13,7 @@
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 {% buttons %}
-                <button type="submit" class="btn btn-success">Crear usuario</button>
+                <button type="submit" class="btn btn-success">{% trans 'Register' %}</button>
                 {% endbuttons %}
             </form>
         </div><!-- col-md -->

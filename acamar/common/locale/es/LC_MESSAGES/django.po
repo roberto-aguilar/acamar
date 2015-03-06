@@ -1,8 +1,10 @@
 # This file is distributed under the same license as the Acamar package.
 # Roberto Aguilar <raguilar@dojogeek.io>, 2015.
 #
+msgid ""
+msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 05:11+0000\n"
+"POT-Creation-Date: 2015-03-06 06:35+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -34,6 +36,27 @@ msgstr "Dirección de correo electrónico"
 #: forms/create_user_form.py:32 forms/create_user_form.py:37
 msgid "Passwords does not match"
 msgstr "Las contraseñas no coinciden"
+
+#: templates/common/create_user.html:16 templates/common/index.html:12
+#: templates/common/navigation-bar.html:35
+msgid "Register"
+msgstr "Registrarse"
+
+#: templates/common/index.html:10
+msgid "Welcome!"
+msgstr "¡Bienvenido!"
+
+#: templates/common/index.html:11
+msgid "Acamar is an open source project for sales management"
+msgstr "Acamar es un proyecto de código abierto para la gestión de ventas"
+
+#: templates/common/login.html:16 templates/common/navigation-bar.html:32
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: templates/common/navigation-bar.html:26
+msgid "Logout"
+msgstr "Cerrar sesión"
 
 #: validators/authentication_validators.py:11
 #, python-format

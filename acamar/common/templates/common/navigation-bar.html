@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <div id="navigation-bar" class="container">
     <div class="navbar navbar-inverse" role="navigation">
         <div class="navbar-header">
@@ -21,16 +23,16 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ user.get_full_name }} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="{% url 'common:logout' %}">Cerrar sesión</a>
+                            <a href="{% url 'common:logout' %}">{% trans 'Logout' %}</a>
                         </li>
                     </ul><!-- dropdown-menu -->
                 </li><!-- dropdown -->
                 {% else %}
                 <li>
-                    <a href="{% url 'common:login' %}">Iniciar sesión</a>
+                    <a href="{% url 'common:login' %}">{% trans 'Login' %}</a>
                 </li>
                 <li>
-                    <a href="{% url 'common:register' %}">Registro</a>
+                    <a href="{% url 'common:register' %}">{% trans 'Register' %}</a>
                 </li>
                 {% endif %}
             </ul><!-- navbar-nav -->

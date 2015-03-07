@@ -6,7 +6,7 @@ from common import forms
 
 class RegisterView(generic.CreateView):
     model = User
-    template_name = 'common/create_user.html'
+    template_name = 'common/register.html'
     form_class = forms.CreateUserForm
 
     def get_success_url(self):

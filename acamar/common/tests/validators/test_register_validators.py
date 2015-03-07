@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from common import validators
 
 
-class TestCreateUserValidators(TestCase):
+class TestRegisterValidators(TestCase):
 
     def test_username_does_not_exist_with_user_that_exist(self):
         expected_exception_code = 'user_already_exist'

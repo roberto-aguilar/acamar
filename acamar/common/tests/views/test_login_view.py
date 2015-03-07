@@ -16,20 +16,20 @@ class TestLoginView(TestCase):
                 status_code=response.status_code))
 
     def test_login_view_with_user_authenticated(self):
-        index_url = reverse('common:index')
+        profile_url = reverse('common:profile')
         User.objects.create_user('test_username', 'test@test.com', 'test_password')
         self.client.login(username='test_username', password='test_password')
         response = self.client.get(self.login_url)
-        self.assertRedirects(response, expected_url=index_url,
+        self.assertRedirects(response, expected_url=profile_url,
             msg_prefix='Expected response redirect on already authenticated users')
 
     def test_login_view_with_authentication_data_provided(self):
         User.objects.create_user('test_username', 'test@test.com', 'test_password')
-        index_url = reverse('common:index')
+        profile_url = reverse('common:profile')
         form_data = {
             'username': 'test_username',
             'password': 'test_password'
         }
         response = self.client.post(self.login_url, form_data)
-        self.assertRedirects(response, expected_url=index_url,
+        self.assertRedirects(response, expected_url=profile_url,
             msg_prefix='Expected response redirect with valid authentication data provided')

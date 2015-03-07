@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 21:24+0000\n"
+"POT-Creation-Date: 2015-03-07 03:55+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -39,7 +39,7 @@ msgstr "Las contraseñas no coinciden"
 
 #: common/templates/common/create_user.html:16
 #: common/templates/common/index.html:12
-#: common/templates/common/navigation-bar.html:35
+#: common/templates/common/navigation-bar.html:38
 msgid "Register"
 msgstr "Registrarse"
 
@@ -52,7 +52,7 @@ msgid "Acamar is an open source project for sales management"
 msgstr "Acamar es un proyecto de código abierto para la gestión de ventas"
 
 #: common/templates/common/language.html:16
-#: common/templates/common/navigation-bar.html:39
+#: common/templates/common/navigation-bar.html:42
 msgid "Language"
 msgstr "Lenguaje"
 
@@ -61,7 +61,7 @@ msgid "Set language"
 msgstr "Establecer lenguaje"
 
 #: common/templates/common/login.html:16
-#: common/templates/common/navigation-bar.html:32
+#: common/templates/common/navigation-bar.html:35
 msgid "Login"
 msgstr "Iniciar sesión"
 
@@ -70,8 +70,28 @@ msgid "Home"
 msgstr "Página de inicio"
 
 #: common/templates/common/navigation-bar.html:26
+msgid "Profile"
+msgstr "Perfil"
+
+#: common/templates/common/navigation-bar.html:29
 msgid "Logout"
 msgstr "Cerrar sesión"
+
+#: common/templates/common/user-detail.html:18
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: common/templates/common/user-detail.html:19
+msgid "Date joined"
+msgstr "Fecha de registro"
+
+#: common/templates/common/user-detail.html:20
+msgid "Last login"
+msgstr "Último inicio de sesión"
+
+#: common/templates/common/user-detail.html:22
+msgid "Edit profile"
+msgstr "Editar perfil"
 
 #: common/urls.py:8
 msgid "^language/"
@@ -88,6 +108,10 @@ msgstr "^cuentas/cerrar-sesion/$"
 #: common/urls.py:11
 msgid "^accounts/register/$"
 msgstr "^cuentas/registrarse/$"
+
+#: common/urls.py:12
+msgid "^accounts/profile/$"
+msgstr "^cuentas/perfil/$"
 
 #: common/validators/authentication_validators.py:11
 #, python-format

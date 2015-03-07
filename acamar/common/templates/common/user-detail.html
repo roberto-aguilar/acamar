@@ -1,0 +1,30 @@
+{% extends 'common/base.html' %}
+
+{% load i18n %}
+
+{% load staticfiles %}
+
+{% load bootstrap3 %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-sm-offset-0 col-xs-12">
+            <div class="thumbnail">
+                <img class="img-rounded" src="{% static 'common/img/profile-photo.png' %}" />
+                <div class="caption">
+                    <h3>{{ user.get_full_name }}</h3>
+                    <p><strong>{% trans 'Email' %}:</strong> {{ user.email }}</p>
+                    <p><strong>{% trans 'Date joined' %}:</strong> {{ user.date_joined }}</p>
+                    <p><strong>{% trans 'Last login' %}:</strong> {{ user.last_login }}</p>
+                    <a href="#">
+                        <btn class="btn btn-success">{% trans 'Edit profile' %}</btn>
+                    </a>
+                </div>
+            </div><!-- thumbnail -->
+        </div><!-- col-md -->
+    </div><!-- row -->
+</div><!-- container -->
+
+{% endblock %}

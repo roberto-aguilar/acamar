@@ -18,4 +18,4 @@ def get_file_path(instance, filename):
 class UserProfile(models.Model):
     authentication_user = models.OneToOneField(User)
     image = models.ImageField(upload_to=get_file_path, default='{url}{image_path}'.format(
-        url=settings.STATIC_URL, image_path='accounts/img/profile-photo.png'))
+        url=settings.STATIC_URL, image_path='accounts/img/profile-photo.png'), blank=True)

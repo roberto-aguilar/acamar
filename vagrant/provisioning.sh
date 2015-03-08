@@ -12,11 +12,15 @@ apt-get update > /dev/null
 echo 'Installing python development packages'
 apt-get install -y python-setuptools python-dev > /dev/null
 
+echo 'Installing Pillow (images processing library) dependencies'
+apt-get install -y libtiff4-dev libjpeg8-dev zlib1g-dev \
+    libfreetype6-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk > /dev/null
+
 echo 'Installing Django extensions dependencies'
 apt-get install -y graphviz-dev graphviz pkg-config > /dev/null
 
 echo 'Installing Django translation tools'
-apt-get install -y gettext
+apt-get install -y gettext > /dev/null
 
 echo 'Installing pip python package manager'
 easy_install pip > /dev/null
@@ -38,9 +42,6 @@ sudo su - postgres -c 'createdb vagrant'
 
 echo 'Installing python project dependencies (requirements file)'
 pip install -r /vagrant/requirements/development.txt > /dev/null
-
-# The following commands fix flake8 bugs outside of a virtualenv
-sudo pip install --upgrade setuptools > /dev/null
 
 echo 'Running project migration files'
 sudo su - vagrant -c "python $PROJECT_DIRECTORY/manage.py migrate" > /dev/null

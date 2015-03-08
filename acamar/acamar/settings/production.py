@@ -27,6 +27,4 @@ DATABASES = {
 
 ALLOWED_HOSTS = ['104.131.49.161']
 
-STATIC_ROOT = os.path.join(BASE_DIR, '../static')
-
 TEMPLATE_DEBUG = False

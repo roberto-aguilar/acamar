@@ -41,7 +41,6 @@ pip install -r /vagrant/requirements/development.txt > /dev/null
 
 # The following commands fix flake8 bugs outside of a virtualenv
 sudo pip install --upgrade setuptools > /dev/null
-sudo pip install --upgrade flake8 > /dev/null
 
 echo 'Running project migration files'
 sudo su - vagrant -c "python $PROJECT_DIRECTORY/manage.py migrate" > /dev/null

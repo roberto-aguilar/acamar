@@ -1,6 +1,5 @@
 from django.test import TestCase
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.contrib.auth.models import User
 from accounts import forms
 
 
@@ -23,8 +22,6 @@ class TestCreateUserProfileForm(TestCase):
         form = forms.CreateUserProfileForm(data=form_data, files=form_files)
         self.assertTrue(form.is_valid(),
             'Expected form to be valid with correct data provided')
-        form.save()
-        queryset = User.objects.filter(username=form_data['username'])
 
     def test_form_without_required_fields_provided(self):
         form_data = {

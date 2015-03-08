@@ -5,7 +5,7 @@ from accounts import models
 
 
 class CreateUserProfileForm(forms.ModelForm):
-    image = forms.ImageField()
+    image = forms.ImageField(required=False, label=ugettext_lazy('Profile image'))
     confirm_password = forms.CharField(widget=forms.PasswordInput, label=ugettext_lazy('Confirm password'))
 
     class Meta:

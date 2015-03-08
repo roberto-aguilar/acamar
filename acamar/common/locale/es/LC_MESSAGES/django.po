@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-07 03:55+0000\n"
+"POT-Creation-Date: 2015-03-08 14:34+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -12,6 +12,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: acamar/urls.py:12
+msgid "^accounts/"
+msgstr "^cuentas/"
 
 #: common/forms/authentication_form.py:9
 msgid "Username"
@@ -25,23 +29,17 @@ msgstr "Contraseña"
 msgid "Incorrect password"
 msgstr "Contraseña incorrecta"
 
-#: common/forms/create_user_form.py:8
+#: common/forms/register_form.py:8
 msgid "Confirm password"
 msgstr "Confirmar contraseña"
 
-#: common/forms/create_user_form.py:14
+#: common/forms/register_form.py:14
 msgid "Email address"
 msgstr "Dirección de correo electrónico"
 
-#: common/forms/create_user_form.py:35 common/forms/create_user_form.py:40
+#: common/forms/register_form.py:35 common/forms/register_form.py:40
 msgid "Passwords does not match"
 msgstr "Las contraseñas no coinciden"
-
-#: common/templates/common/create_user.html:16
-#: common/templates/common/index.html:12
-#: common/templates/common/navigation-bar.html:38
-msgid "Register"
-msgstr "Registrarse"
 
 #: common/templates/common/index.html:10
 msgid "Welcome!"
@@ -50,6 +48,11 @@ msgstr "¡Bienvenido!"
 #: common/templates/common/index.html:11
 msgid "Acamar is an open source project for sales management"
 msgstr "Acamar es un proyecto de código abierto para la gestión de ventas"
+
+#: common/templates/common/index.html:12
+#: common/templates/common/navigation-bar.html:38
+msgid "Register"
+msgstr "Registrarse"
 
 #: common/templates/common/language.html:16
 #: common/templates/common/navigation-bar.html:42
@@ -64,6 +67,10 @@ msgstr "Establecer lenguaje"
 #: common/templates/common/navigation-bar.html:35
 msgid "Login"
 msgstr "Iniciar sesión"
+
+#: common/templates/common/navigation-bar.html:7
+msgid "Toggle navigation"
+msgstr ""
 
 #: common/templates/common/navigation-bar.html:17
 msgid "Home"
@@ -94,8 +101,8 @@ msgid "Edit profile"
 msgstr "Editar perfil"
 
 #: common/urls.py:8
-msgid "^language/"
-msgstr "^lenguaje/"
+msgid "^language/$"
+msgstr "^lenguaje/$"
 
 #: common/urls.py:9
 msgid "^accounts/login/$"
@@ -106,10 +113,6 @@ msgid "^accounts/logout/$"
 msgstr "^cuentas/cerrar-sesion/$"
 
 #: common/urls.py:11
-msgid "^accounts/register/$"
-msgstr "^cuentas/registrarse/$"
-
-#: common/urls.py:12
 msgid "^accounts/profile/$"
 msgstr "^cuentas/perfil/$"
 
@@ -123,7 +126,8 @@ msgstr "La cuenta con el nombre de usuario \"%(username)s\" no existe"
 msgid "The account with username \"%(username)s\" is inactive"
 msgstr "La cuenta con el nombre de usuario \"%(username)s\" esta inactiva"
 
-#: common/validators/create_user_validators.py:10
+#: common/validators/register_validators.py:10
 #, python-format
 msgid "The username \"%(username)s\" already exists"
 msgstr "El usuario \"%(username)s\" ya existe"
+

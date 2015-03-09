@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import ugettext, ugettext_lazy
 from django.contrib.auth.models import User
-from accounts import models
+from accounts import models, validators
 
 
 class CreateUserProfileForm(forms.ModelForm):
@@ -20,6 +20,7 @@ class CreateUserProfileForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(CreateUserProfileForm, self).__init__(*args, **kwargs)
+        self.fields['username'].validators.append(validators.validate_username_does_not_exist)
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
         self.fields['email'].required = True

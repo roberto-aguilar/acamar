@@ -50,7 +50,7 @@ if [ $orphan_ids_ocurrences -gt 0 ]
         echo "${green_color}The translation files compiled successfully, make sure to add them to the version control system stage${no_color}"
 fi
 
-echo 'Running tests with measuring coverage...'
+echo "running tests with coverage's measuring"
 coverage run acamar/manage.py test acamar/
 
 if [ $? -eq $success_status_code ]

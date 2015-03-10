@@ -6,7 +6,7 @@ from accounts import forms
 
 class CreateUserProfileView(generic.CreateView):
     model = models.UserProfile
-    template_name = 'accounts/create-user-profile.html'
+    template_name = 'accounts/create_user_profile.html'
     form_class = forms.CreateUserProfileForm
 
     def get_success_url(self):

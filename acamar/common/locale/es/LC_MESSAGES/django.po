@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-08 14:34+0000\n"
+"POT-Creation-Date: 2015-03-10 01:08+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -28,18 +28,6 @@ msgstr "Contraseña"
 #: common/forms/authentication_form.py:20
 msgid "Incorrect password"
 msgstr "Contraseña incorrecta"
-
-#: common/forms/register_form.py:8
-msgid "Confirm password"
-msgstr "Confirmar contraseña"
-
-#: common/forms/register_form.py:14
-msgid "Email address"
-msgstr "Dirección de correo electrónico"
-
-#: common/forms/register_form.py:35 common/forms/register_form.py:40
-msgid "Passwords does not match"
-msgstr "Las contraseñas no coinciden"
 
 #: common/templates/common/index.html:10
 msgid "Welcome!"
@@ -70,7 +58,7 @@ msgstr "Iniciar sesión"
 
 #: common/templates/common/navigation-bar.html:7
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Mostrar/Ocultar navegación"
 
 #: common/templates/common/navigation-bar.html:17
 msgid "Home"
@@ -125,9 +113,3 @@ msgstr "La cuenta con el nombre de usuario \"%(username)s\" no existe"
 #, python-format
 msgid "The account with username \"%(username)s\" is inactive"
 msgstr "La cuenta con el nombre de usuario \"%(username)s\" esta inactiva"
-
-#: common/validators/register_validators.py:10
-#, python-format
-msgid "The username \"%(username)s\" already exists"
-msgstr "El usuario \"%(username)s\" ya existe"
-

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-08 14:34+0000\n"
+"POT-Creation-Date: 2015-03-10 01:08+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -25,8 +25,8 @@ msgstr "Confirmar contraseña"
 msgid "Email address"
 msgstr "Dirección de correo electrónico"
 
-#: accounts/forms/create_user_profile_form.py:34
-#: accounts/forms/create_user_profile_form.py:39
+#: accounts/forms/create_user_profile_form.py:35
+#: accounts/forms/create_user_profile_form.py:40
 msgid "Passwords does not match"
 msgstr "Las contraseñas no coinciden"
 
@@ -38,3 +38,7 @@ msgstr "Registrarse"
 msgid "^register/$"
 msgstr "^registro/$"
 
+#: accounts/validators/user_profile_validators.py:10
+#, python-format
+msgid "The username \"%(username)s\" already exists"
+msgstr "El usuario \"%(username)s\" ya existe"

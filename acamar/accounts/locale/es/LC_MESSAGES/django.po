@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 19:59+0000\n"
+"POT-Creation-Date: 2015-03-10 22:10+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -42,7 +42,7 @@ msgstr "Dirección de correo electrónico"
 msgid "Passwords does not match"
 msgstr "Las contraseñas no coinciden"
 
-#: acamar/accounts/templates/accounts/create-user-profile.html:16
+#: acamar/accounts/templates/accounts/create_user_profile.html:16
 msgid "Register"
 msgstr "Registrarse"
 

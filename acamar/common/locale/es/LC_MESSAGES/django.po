@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 19:59+0000\n"
+"POT-Creation-Date: 2015-03-10 22:10+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -26,12 +26,12 @@ msgid "Acamar is an open source project for sales management"
 msgstr "Acamar es un proyecto de código abierto para la gestión de ventas"
 
 #: acamar/common/templates/common/index.html:12
-#: acamar/common/templates/common/navigation-bar.html:38
+#: acamar/common/templates/common/navigation_bar.html:38
 msgid "Register"
 msgstr "Registrarse"
 
 #: acamar/common/templates/common/language.html:16
-#: acamar/common/templates/common/navigation-bar.html:42
+#: acamar/common/templates/common/navigation_bar.html:42
 msgid "Language"
 msgstr "Lenguaje"
 
@@ -39,23 +39,23 @@ msgstr "Lenguaje"
 msgid "Set language"
 msgstr "Establecer lenguaje"
 
-#: acamar/common/templates/common/navigation-bar.html:7
+#: acamar/common/templates/common/navigation_bar.html:7
 msgid "Toggle navigation"
 msgstr "Mostrar/Ocultar navegación"
 
-#: acamar/common/templates/common/navigation-bar.html:17
+#: acamar/common/templates/common/navigation_bar.html:17
 msgid "Home"
 msgstr "Página de inicio"
 
-#: acamar/common/templates/common/navigation-bar.html:26
+#: acamar/common/templates/common/navigation_bar.html:26
 msgid "Profile"
 msgstr "Perfil"
 
-#: acamar/common/templates/common/navigation-bar.html:29
+#: acamar/common/templates/common/navigation_bar.html:29
 msgid "Logout"
 msgstr "Cerrar sesión"
 
-#: acamar/common/templates/common/navigation-bar.html:35
+#: acamar/common/templates/common/navigation_bar.html:35
 msgid "Login"
 msgstr "Iniciar sesión"
 

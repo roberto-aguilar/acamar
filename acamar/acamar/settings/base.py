@@ -8,9 +8,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
-# Import messages framework constants
-from django.contrib.messages import constants as message_constants
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -92,6 +89,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 # Override messages framework ERROR constant to match boostrap css classes
+from django.contrib.messages import constants as message_constants
 
 MESSAGE_TAGS = {
     message_constants.ERROR: 'danger'
@@ -112,3 +110,8 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, '../common/locale/'),
     os.path.join(BASE_DIR, '../accounts/locale/')
 )
+
+# Authentication
+
+LOGIN_URL = 'accounts:login'
+LOGOUT_URL = 'accounts:logout'

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 01:56+0000\n"
+"POT-Creation-Date: 2015-03-10 05:40+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -72,22 +72,6 @@ msgstr "Perfil"
 msgid "Logout"
 msgstr "Cerrar sesión"
 
-#: common/templates/common/user-detail.html:18
-msgid "Email"
-msgstr "Correo electrónico"
-
-#: common/templates/common/user-detail.html:19
-msgid "Date joined"
-msgstr "Fecha de registro"
-
-#: common/templates/common/user-detail.html:20
-msgid "Last login"
-msgstr "Último inicio de sesión"
-
-#: common/templates/common/user-detail.html:22
-msgid "Edit profile"
-msgstr "Editar perfil"
-
 #: common/urls.py:8
 msgid "^language/$"
 msgstr "^lenguaje/$"
@@ -99,10 +83,6 @@ msgstr "^cuentas/iniciar-sesion/$"
 #: common/urls.py:10
 msgid "^accounts/logout/$"
 msgstr "^cuentas/cerrar-sesion/$"
-
-#: common/urls.py:11
-msgid "^accounts/profile/$"
-msgstr "^cuentas/perfil/$"
 
 #: common/validators/authentication_validators.py:11
 #, python-format

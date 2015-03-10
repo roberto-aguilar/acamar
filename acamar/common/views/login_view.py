@@ -7,7 +7,7 @@ from common import forms
 
 class LoginView(generic.FormView):
     form_class = forms.AuthenticationForm
-    success_url = 'common:profile'
+    success_url = 'accounts:user_profile_detail'
     template_name = 'common/login.html'
 
     def form_valid(self, form):

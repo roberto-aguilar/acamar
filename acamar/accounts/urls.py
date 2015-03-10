@@ -5,4 +5,5 @@ from accounts import views
 
 urlpatterns = patterns('',
     url(_(r'^register/$'), views.CreateUserProfileView.as_view(), name='register'),
+    url(_(r'^profile/$'), views.UserProfileDetailView.as_view(), name='user_profile_detail'),
 )

@@ -27,19 +27,8 @@ vagrant ssh
 
 ### Contributing
 
-Before each commit ensure the following requirements are met
-
-* Run all test with coverage integration
-  * All test must run succesfully
-  * The coverage average must be above 90%
+Before each commit, run the following script and ensure that no problems were detected
 
 ```sh
-coverage run acamar/manage.py test acamar && coverage report
-```
-
-* Run source code checker
-  * There should be no errors reported
-
-```sh
-flake8 acamar/
+sh tests.sh
 ```

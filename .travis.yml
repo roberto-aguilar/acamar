@@ -9,6 +9,7 @@ before_script:
   - sudo su - postgres -c "createuser -s vagrant"
   - flake8 acamar/ --ignore=E128,F403
 script:
-  - coverage run --source=acamar acamar/manage.py test acamar
+  - coverage run --source=acamar acamar/manage.py test acamar/
+  - coverage report --fail-under=95
 after_success:
   coveralls

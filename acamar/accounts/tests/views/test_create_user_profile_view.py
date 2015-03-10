@@ -9,7 +9,7 @@ class TestCreateUserProfileView(TestCase):
         self.register_url = reverse('accounts:register')
 
     def test_register_view_with_correct_data_provided(self):
-        success_url = reverse('common:login')
+        success_url = reverse('accounts:login')
         base64_image = b'GIF87a\x01\x00\x01\x00\x80\x01\x00\x00\x00\x00ccc,\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02D\x01\x00'  # noqa
         form_data = {
             'username': 'test_username_view',

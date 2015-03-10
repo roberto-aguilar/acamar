@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class TestLoginView(TestCase):
 
     def setUp(self):
-        self.login_url = reverse('common:login')
+        self.login_url = reverse('accounts:login')
 
     def test_login_view_with_user_not_authenticated(self):
         HTTP_200_OK = 200

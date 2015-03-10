@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <form action="{% url 'common:login' %}" method="post" class="form" novalidate>
+            <form action="{% url 'accounts:login' %}" method="post" class="form" novalidate>
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 {% buttons %}

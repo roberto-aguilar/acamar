@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from common import validators
+from accounts import validators
 
 
 class TestAuthenticationValidators(TestCase):

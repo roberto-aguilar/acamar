@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 05:40+0000\n"
+"POT-Creation-Date: 2015-03-10 19:52+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -13,52 +13,82 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: accounts/forms/create_user_profile_form.py:8
+#: acamar/accounts/forms/authentication_form.py:9
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: acamar/accounts/forms/authentication_form.py:10
+msgid "Password"
+msgstr "Contraseña"
+
+#: acamar/accounts/forms/authentication_form.py:20
+msgid "Incorrect password"
+msgstr "Contraseña incorrecta"
+
+#: acamar/accounts/forms/create_user_profile_form.py:8
 msgid "Profile image"
 msgstr "Imagen de perfil"
 
-#: accounts/forms/create_user_profile_form.py:9
+#: acamar/accounts/forms/create_user_profile_form.py:9
 msgid "Confirm password"
 msgstr "Confirmar contraseña"
 
-#: accounts/forms/create_user_profile_form.py:15
+#: acamar/accounts/forms/create_user_profile_form.py:15
 msgid "Email address"
 msgstr "Dirección de correo electrónico"
 
-#: accounts/forms/create_user_profile_form.py:35
-#: accounts/forms/create_user_profile_form.py:40
+#: acamar/accounts/forms/create_user_profile_form.py:35
+#: acamar/accounts/forms/create_user_profile_form.py:40
 msgid "Passwords does not match"
 msgstr "Las contraseñas no coinciden"
 
-#: accounts/templates/accounts/create-user-profile.html:16
+#: acamar/accounts/templates/accounts/create-user-profile.html:16
 msgid "Register"
 msgstr "Registrarse"
 
-#: accounts/templates/accounts/user_profile_detail.html:18
+#: acamar/accounts/templates/accounts/login.html:16
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: acamar/accounts/templates/accounts/user_profile_detail.html:18
 msgid "Email"
 msgstr "Correo electrónico"
 
-#: accounts/templates/accounts/user_profile_detail.html:19
+#: acamar/accounts/templates/accounts/user_profile_detail.html:19
 msgid "Date joined"
 msgstr "Fecha de registro"
 
-#: accounts/templates/accounts/user_profile_detail.html:20
+#: acamar/accounts/templates/accounts/user_profile_detail.html:20
 msgid "Last login"
 msgstr "Último inicio de sesión"
 
-#: accounts/templates/accounts/user_profile_detail.html:22
+#: acamar/accounts/templates/accounts/user_profile_detail.html:22
 msgid "Edit profile"
 msgstr "Editar perfil"
 
-#: accounts/urls.py:7
+#: acamar/accounts/urls.py:7
 msgid "^register/$"
 msgstr "^registro/$"
 
-#: accounts/urls.py:8
+#: acamar/accounts/urls.py:8
+msgid "^login/$"
+msgstr "^iniciar-sesion/$"
+
+#: acamar/accounts/urls.py:9
 msgid "^profile/$"
 msgstr "^perfil/$"
 
-#: accounts/validators/user_profile_validators.py:10
+#: acamar/accounts/validators/authentication_validators.py:11
+#, python-format
+msgid "The \"%(username)s\" account does not exists"
+msgstr "La cuenta asociada al usuario \"%(username)s\" no existe"
+
+#: acamar/accounts/validators/authentication_validators.py:24
+#, python-format
+msgid "The account with username \"%(username)s\" is inactive"
+msgstr "La cuenta asociada al usuario \"%(username)s\" esta inactiva"
+
+#: acamar/accounts/validators/user_profile_validators.py:10
 #, python-format
 msgid "The username \"%(username)s\" already exists"
 msgstr "El usuario \"%(username)s\" ya existe"

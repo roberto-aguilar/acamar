@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 05:40+0000\n"
+"POT-Creation-Date: 2015-03-10 19:52+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -13,83 +13,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: acamar/urls.py:12
+#: acamar/acamar/urls.py:12
 msgid "^accounts/"
 msgstr "^cuentas/"
 
-#: common/forms/authentication_form.py:9
-msgid "Username"
-msgstr "Nombre de usuario"
-
-#: common/forms/authentication_form.py:10
-msgid "Password"
-msgstr "Contraseña"
-
-#: common/forms/authentication_form.py:20
-msgid "Incorrect password"
-msgstr "Contraseña incorrecta"
-
-#: common/templates/common/index.html:10
+#: acamar/common/templates/common/index.html:10
 msgid "Welcome!"
 msgstr "¡Bienvenido!"
 
-#: common/templates/common/index.html:11
+#: acamar/common/templates/common/index.html:11
 msgid "Acamar is an open source project for sales management"
 msgstr "Acamar es un proyecto de código abierto para la gestión de ventas"
 
-#: common/templates/common/index.html:12
-#: common/templates/common/navigation-bar.html:38
+#: acamar/common/templates/common/index.html:12
+#: acamar/common/templates/common/navigation-bar.html:38
 msgid "Register"
 msgstr "Registrarse"
 
-#: common/templates/common/language.html:16
-#: common/templates/common/navigation-bar.html:42
+#: acamar/common/templates/common/language.html:16
+#: acamar/common/templates/common/navigation-bar.html:42
 msgid "Language"
 msgstr "Lenguaje"
 
-#: common/templates/common/language.html:23
+#: acamar/common/templates/common/language.html:23
 msgid "Set language"
 msgstr "Establecer lenguaje"
 
-#: common/templates/common/login.html:16
-#: common/templates/common/navigation-bar.html:35
-msgid "Login"
-msgstr "Iniciar sesión"
-
-#: common/templates/common/navigation-bar.html:7
+#: acamar/common/templates/common/navigation-bar.html:7
 msgid "Toggle navigation"
 msgstr "Mostrar/Ocultar navegación"
 
-#: common/templates/common/navigation-bar.html:17
+#: acamar/common/templates/common/navigation-bar.html:17
 msgid "Home"
 msgstr "Página de inicio"
 
-#: common/templates/common/navigation-bar.html:26
+#: acamar/common/templates/common/navigation-bar.html:26
 msgid "Profile"
 msgstr "Perfil"
 
-#: common/templates/common/navigation-bar.html:29
+#: acamar/common/templates/common/navigation-bar.html:29
 msgid "Logout"
 msgstr "Cerrar sesión"
 
-#: common/urls.py:8
+#: acamar/common/templates/common/navigation-bar.html:35
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: acamar/common/urls.py:8
 msgid "^language/$"
 msgstr "^lenguaje/$"
 
-#: common/urls.py:9
-msgid "^accounts/login/$"
-msgstr "^cuentas/iniciar-sesion/$"
-
-#: common/urls.py:10
+#: acamar/common/urls.py:9
 msgid "^accounts/logout/$"
 msgstr "^cuentas/cerrar-sesion/$"
-
-#: common/validators/authentication_validators.py:11
-#, python-format
-msgid "The \"%(username)s\" account does not exists"
-msgstr "La cuenta con el nombre de usuario \"%(username)s\" no existe"
-
-#: common/validators/authentication_validators.py:24
-#, python-format
-msgid "The account with username \"%(username)s\" is inactive"
-msgstr "La cuenta con el nombre de usuario \"%(username)s\" esta inactiva"

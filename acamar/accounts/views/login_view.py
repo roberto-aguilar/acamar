@@ -2,13 +2,13 @@ from django.views import generic
 from django.core.urlresolvers import reverse
 from django.contrib.auth import login
 from django.shortcuts import redirect
-from common import forms
+from accounts import forms
 
 
 class LoginView(generic.FormView):
     form_class = forms.AuthenticationForm
     success_url = 'accounts:user_profile_detail'
-    template_name = 'common/login.html'
+    template_name = 'accounts/login.html'
 
     def form_valid(self, form):
         login(self.request, form.cleaned_data['user_authenticated'])

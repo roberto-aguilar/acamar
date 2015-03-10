@@ -10,4 +10,4 @@ class CreateUserProfileView(generic.CreateView):
     form_class = forms.CreateUserProfileForm
 
     def get_success_url(self):
-        return reverse('common:login')
+        return reverse('accounts:login')

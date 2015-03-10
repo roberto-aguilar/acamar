@@ -7,7 +7,7 @@ from django.contrib.auth import SESSION_KEY
 class TestLogoutView(TestCase):
 
     def setUp(self):
-        self.logout_url = reverse('common:logout')
+        self.logout_url = reverse('accounts:logout')
 
     def test_logout_view_with_user_not_authenticated(self):
         index_url = reverse('common:index')

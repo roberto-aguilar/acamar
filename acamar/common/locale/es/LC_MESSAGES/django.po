@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 19:52+0000\n"
+"POT-Creation-Date: 2015-03-10 19:59+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -62,7 +62,3 @@ msgstr "Iniciar sesión"
 #: acamar/common/urls.py:8
 msgid "^language/$"
 msgstr "^lenguaje/$"
-
-#: acamar/common/urls.py:9
-msgid "^accounts/logout/$"
-msgstr "^cuentas/cerrar-sesion/$"

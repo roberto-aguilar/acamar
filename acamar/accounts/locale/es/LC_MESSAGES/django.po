@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-11 06:43+0000\n"
+"POT-Creation-Date: 2015-03-11 07:23+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -96,6 +96,18 @@ msgstr "La cuenta asociada al usuario \"%(username)s\" esta inactiva"
 #, python-format
 msgid "The username \"%(username)s\" already exists"
 msgstr "El usuario \"%(username)s\" ya existe"
+
+#: accounts/views/login_view.py:14
+msgid "Successful login"
+msgstr "Inicio de sesión exitoso"
+
+#: accounts/views/login_view.py:15
+msgid "There was an error trying login"
+msgstr "Hubo un error al intentar iniciar sesión"
+
+#: accounts/views/login_view.py:36
+msgid "Already logged in"
+msgstr "Sesión ya iniciada"
 
 #: accounts/views/logout_view.py:14
 msgid "Logout successful"

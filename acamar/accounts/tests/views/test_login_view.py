@@ -12,9 +12,13 @@ class TestLoginView(TestCase):
         user_profile_detail_url = reverse('accounts:user_profile_detail')
         User.objects.create_user('test_username', 'test@test.com', 'test_password')
         self.client.login(username='test_username', password='test_password')
-        response = self.client.get(self.login_url)
+        response = self.client.get(self.login_url, follow=True)
         self.assertRedirects(response, expected_url=user_profile_detail_url,
             msg_prefix='Expected response redirect to user profile view on already authenticated users')
+        messages_storage = response.context['messages']
+        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        self.assertIn('Already logged in', loaded_messages,
+            'Expect message to be in loaded messages')
 
     def test_view_with_user_not_authenticated_and_without_next_url_param(self):
         HTTP_200_OK = 200
@@ -46,9 +50,13 @@ class TestLoginView(TestCase):
             'username': 'test_username',
             'password': 'test_password'
         }
-        response = self.client.post(self.login_url, form_data)
+        response = self.client.post(self.login_url, form_data, follow=True)
         self.assertRedirects(response, expected_url=user_profile_detail_url,
             msg_prefix='Expected response redirect to user profile view with valid authentication data provided')
+        messages_storage = response.context['messages']
+        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        self.assertIn('Successful login', loaded_messages,
+            'Expect message to be in loaded messages')
 
     def test_view_with_user_not_authenticated_and_valid_authentication_data_provided_including_next_url_parameter(self):
         User.objects.create_user(
@@ -59,9 +67,13 @@ class TestLoginView(TestCase):
             'password': 'test_password',
             'next_url': index_url
         }
-        response = self.client.post(self.login_url, form_data)
+        response = self.client.post(self.login_url, form_data, follow=True)
         self.assertRedirects(response, expected_url=index_url,
             msg_prefix='Expected redirect to "next_url" url value with valid authentication data provided')
+        messages_storage = response.context['messages']
+        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        self.assertIn('Successful login', loaded_messages,
+            'Expect message to be in loaded messages')
 
     def test_view_with_user_not_authenticated_and_invalid_authentication_data_provided(self):
         HTTP_200_OK = 200
@@ -80,3 +92,7 @@ class TestLoginView(TestCase):
             'Expect form to be invalid with incorrect data provided')
         self.assertIn('password', form.errors,
             'Expected password form field to be in form errors')
+        messages_storage = response.context['messages']
+        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        self.assertIn('There was an error trying login', loaded_messages,
+            'Expect message to be in loaded messages')

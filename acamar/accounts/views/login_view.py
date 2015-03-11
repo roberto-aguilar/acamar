@@ -1,7 +1,9 @@
 from django.views import generic
-from django.core.urlresolvers import reverse
-from django.contrib.auth import login
 from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth import login
+from django.contrib import messages
 from accounts import forms
 from common import mixins
 
@@ -9,8 +11,8 @@ from common import mixins
 class LoginView(mixins.MessagesMixin, generic.FormView):
     form_class = forms.AuthenticationForm
     template_name = 'accounts/login.html'
-    success_message = 'Login successful'
-    error_message = 'Error trying to login, please try again'
+    success_message = _('Successful login')
+    error_message = _('There was an error trying login')
 
     def __init__(self, **kwargs):
         self.success_url = reverse('accounts:user_profile_detail')
@@ -31,6 +33,7 @@ class LoginView(mixins.MessagesMixin, generic.FormView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated():
+            messages.add_message(request, messages.INFO, _('Already logged in'))
             return HttpResponseRedirect(self.get_success_url())
         else:
             form_class = self.get_form_class()

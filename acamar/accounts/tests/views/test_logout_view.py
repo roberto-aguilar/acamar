@@ -11,15 +11,19 @@ class TestLogoutView(TestCase):
 
     def test_logout_view_with_user_not_authenticated(self):
         index_url = reverse('common:index')
-        response = self.client.get(self.logout_url)
+        response = self.client.get(self.logout_url, follow=True)
         self.assertRedirects(response, expected_url=index_url,
             msg_prefix='Expected response redirect to index view with user not authenticated')
+        messages_storage = response.context['messages']
+        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        self.assertIn('There is no user logged in', loaded_messages,
+            'Expected message to be in loaded messages')
 
     def test_logout_view_with_user_authenticated(self):
         index_url = reverse('common:index')
         User.objects.create_user('test_username', 'test@test.com', 'test_password')
         self.client.login(username='test_username', password='test_password')
-        response = self.client.get(self.logout_url)
+        response = self.client.get(self.logout_url, follow=True)
         self.assertRedirects(response, expected_url=index_url,
             msg_prefix='Expected response redirect to index view with user not authenticated')
         """
@@ -29,3 +33,7 @@ class TestLogoutView(TestCase):
         """
         self.assertNotIn(SESSION_KEY, self.client.session,
             'Expected user not to be authenticated')
+        messages_storage = response.context['messages']
+        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        self.assertIn('Logout successful', loaded_messages,
+            'Expected message to be in loaded messages')

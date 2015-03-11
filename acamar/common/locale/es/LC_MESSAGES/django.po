@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 22:10+0000\n"
+"POT-Creation-Date: 2015-03-11 06:43+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -13,52 +13,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: acamar/acamar/urls.py:12
+#: acamar/urls.py:12
 msgid "^accounts/"
 msgstr "^cuentas/"
 
-#: acamar/common/templates/common/index.html:10
+#: common/templates/common/index.html:10
 msgid "Welcome!"
 msgstr "¡Bienvenido!"
 
-#: acamar/common/templates/common/index.html:11
+#: common/templates/common/index.html:11
 msgid "Acamar is an open source project for sales management"
 msgstr "Acamar es un proyecto de código abierto para la gestión de ventas"
 
-#: acamar/common/templates/common/index.html:12
-#: acamar/common/templates/common/navigation_bar.html:38
+#: common/templates/common/index.html:12
+#: common/templates/common/navigation_bar.html:38
 msgid "Register"
 msgstr "Registrarse"
 
-#: acamar/common/templates/common/language.html:16
-#: acamar/common/templates/common/navigation_bar.html:42
+#: common/templates/common/language.html:16
+#: common/templates/common/navigation_bar.html:42
 msgid "Language"
 msgstr "Lenguaje"
 
-#: acamar/common/templates/common/language.html:23
+#: common/templates/common/language.html:23
 msgid "Set language"
 msgstr "Establecer lenguaje"
 
-#: acamar/common/templates/common/navigation_bar.html:7
+#: common/templates/common/navigation_bar.html:7
 msgid "Toggle navigation"
 msgstr "Mostrar/Ocultar navegación"
 
-#: acamar/common/templates/common/navigation_bar.html:17
+#: common/templates/common/navigation_bar.html:17
 msgid "Home"
 msgstr "Página de inicio"
 
-#: acamar/common/templates/common/navigation_bar.html:26
+#: common/templates/common/navigation_bar.html:26
 msgid "Profile"
 msgstr "Perfil"
 
-#: acamar/common/templates/common/navigation_bar.html:29
+#: common/templates/common/navigation_bar.html:29
 msgid "Logout"
 msgstr "Cerrar sesión"
 
-#: acamar/common/templates/common/navigation_bar.html:35
+#: common/templates/common/navigation_bar.html:35
 msgid "Login"
 msgstr "Iniciar sesión"
 
-#: acamar/common/urls.py:8
+#: common/urls.py:8
 msgid "^language/$"
 msgstr "^lenguaje/$"

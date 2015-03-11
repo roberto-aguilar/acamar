@@ -23,29 +23,20 @@ class TestLoginView(TestCase):
             'Expected response status code 200, received {status_code} instead.'.format(
                 status_code=response.status_code))
 
-    def test_view_with_user_not_authenticated_and_with_next_url_param(self):
+    def test_view_with_user_not_authenticated_and_with_next_url_parameter(self):
         HTTP_200_OK = 200
-        user_profile_url = reverse('accounts:user_profile_detail')
-        login_url_with_params = '{login_url}?name={next_url}'.format(
-            login_url=self.login_url, next_url=user_profile_url)
+        index_url = reverse('common:index')
+        login_url_with_params = '{login_url}?next={target_url}'.format(
+            login_url=self.login_url, target_url=index_url)
         response = self.client.get(login_url_with_params)
         self.assertEqual(response.status_code, HTTP_200_OK,
             'Expected response status code 200, received {status_code} instead.'.format(
                 status_code=response.status_code))
-
-    def test_view_with_user_not_authenticated_and_with_next_url_param_with_valid_authenticateion_data_provided(self):
-        User.objects.create_user(
-            username='test_username', email='test@test.com', password='test_password')
-        user_profile_url = reverse('accounts:user_profile_detail')
-        login_url_with_params = '{login_url}?name={next_url}'.format(
-            login_url=self.login_url, next_url=user_profile_url)
-        form_data = {
-            'username': 'test_username',
-            'password': 'test_password'
-        }
-        response = self.client.post(login_url_with_params, form_data)
-        self.assertRedirects(response, expected_url=user_profile_url,
-            msg_prefix='Expect redirects to url in next param with valid authentication provided')
+        form = response.context['form']
+        self.assertIn('next_url', form.initial,
+            'Expected next url parameter to be in form initial data')
+        self.assertEqual(form.initial['next_url'], index_url,
+            'Expected "next" form field value to be equal to url next parameter')
 
     def test_view_with_user_not_authenticated_and_valid_authentication_data_provided(self):
         User.objects.create_user(
@@ -58,3 +49,16 @@ class TestLoginView(TestCase):
         response = self.client.post(self.login_url, form_data)
         self.assertRedirects(response, expected_url=user_profile_detail_url,
             msg_prefix='Expected response redirect to user profile view with valid authentication data provided')
+
+    def test_view_with_user_not_authenticated_and_valid_authentication_data_provided_including_next_url_parameter(self):
+        User.objects.create_user(
+            username='test_username', email='test@test.com', password='test_password')
+        index_url = reverse('common:index')
+        form_data = {
+            'username': 'test_username',
+            'password': 'test_password',
+            'next_url': index_url
+        }
+        response = self.client.post(self.login_url, form_data)
+        self.assertRedirects(response, expected_url=index_url,
+            msg_prefix='Expected redirect to "next_url" url value with valid authentication data provided')

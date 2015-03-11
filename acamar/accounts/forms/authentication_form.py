@@ -8,6 +8,7 @@ class AuthenticationForm(forms.Form):
     username = forms.CharField(max_length=30, validators=[validators.validate_user_exists,
         validators.validate_user_is_active], label=ugettext_lazy('Username'))
     password = forms.CharField(max_length=128, widget=forms.PasswordInput, label=ugettext_lazy('Password'))
+    next_url = forms.CharField(max_length=128, required=False, widget=forms.HiddenInput)
 
     def clean(self):
         username = self.cleaned_data.get('username')

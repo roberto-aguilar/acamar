@@ -23,3 +23,11 @@ class LoginView(generic.FormView):
             form_class = self.get_form_class()
             form = self.get_form(form_class)
             return self.render_to_response(self.get_context_data(form=form))
+
+    def get_initial(self):
+        initial = super(LoginView, self).get_initial()
+        next_url = self.request.GET.get('next')
+        initial = {
+            'next_url': next_url
+        }
+        return initial

@@ -12,8 +12,12 @@ class LoginView(generic.FormView):
 
     def form_valid(self, form):
         login(self.request, form.cleaned_data['user_authenticated'])
-        url_to_redirect = reverse(self.success_url)
-        return redirect(url_to_redirect)
+        next_url = form.cleaned_data['next_url']
+        if next_url:
+            return redirect(next_url)
+        else:
+            url_to_redirect = reverse(self.success_url)
+            return redirect(url_to_redirect)
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated():

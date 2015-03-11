@@ -22,34 +22,6 @@ if [ $? -eq $success_status_code ]
         exit $failure_status_code
 fi
 
-echo 'Pulling out all strings marked for translation...'
-python acamar/manage.py makemessages -l es
-
-echo 'Searching for fuzzy ids in translation files...'
-fuzzy_ocurrences=$(find acamar/ -name 'django.po' -exec grep '#, fuzzy' {} \; | wc -l)
-
-if [ $fuzzy_ocurrences -gt 0 ]
-    then
-        echo "${red_color}Translation files with fuzzy ids found, please fix then to continue${no_color}"
-        exit $failure_status_code
-    else
-        echo "${green_color}No fuzzy ids found in translation files${no_color}"
-fi
-
-echo 'Searching for orphans ids in translation files...'
-orphan_ids_ocurrences=$(find acamar/ -name 'django.po' -exec grep '#~' {} \; | wc -l)
-
-if [ $orphan_ids_ocurrences -gt 0 ]
-    then
-        echo "${red_color}Translation files with orphan ids found, please fix them to continue{$no_color}"
-        exit $failure_status_code
-    else
-        echo "${green_color}No orphan ids found in translation files${no_color}"
-        echo 'Compiling translation files...'
-        python acamar/manage.py compilemessages
-        echo "${green_color}The translation files compiled successfully, make sure to add them to the version control system stage${no_color}"
-fi
-
 echo "running tests with coverage's measuring"
 coverage run acamar/manage.py test acamar/
 

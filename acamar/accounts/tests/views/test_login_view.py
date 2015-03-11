@@ -62,3 +62,21 @@ class TestLoginView(TestCase):
         response = self.client.post(self.login_url, form_data)
         self.assertRedirects(response, expected_url=index_url,
             msg_prefix='Expected redirect to "next_url" url value with valid authentication data provided')
+
+    def test_view_with_user_not_authenticated_and_invalid_authentication_data_provided(self):
+        HTTP_200_OK = 200
+        User.objects.create_user(
+            username='test_username', email='test@test.com', password='test_password')
+        form_data = {
+            'username': 'test_username',
+            'password': 'incorrect_password'
+        }
+        response = self.client.post(self.login_url, form_data)
+        self.assertEqual(response.status_code, HTTP_200_OK,
+            'Expected response status code 200, received {status_code} instead.'.format(
+                status_code=response.status_code))
+        form = response.context['form']
+        self.assertFalse(form.is_valid(),
+            'Expect form to be invalid with incorrect data provided')
+        self.assertIn('password', form.errors,
+            'Expected password form field to be in form errors')

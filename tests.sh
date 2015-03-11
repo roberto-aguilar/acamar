@@ -34,7 +34,7 @@ if [ $? -eq $success_status_code ]
 fi
 
 echo 'Reporting coverage...'
-coverage report --fail-under=95
+coverage report --fail-under=95 -m
 
 if [ $? -eq $coverage_under_expected_status_code ]
     then

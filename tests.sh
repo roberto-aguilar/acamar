@@ -22,7 +22,7 @@ if [ $? -eq $success_status_code ]
         exit $failure_status_code
 fi
 
-echo "running tests with coverage's measuring"
+echo "Running tests with coverage's measuring"
 coverage run acamar/manage.py test acamar/
 
 if [ $? -eq $success_status_code ]

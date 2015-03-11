@@ -10,18 +10,18 @@ class AuthenticationForm(forms.Form):
     password = forms.CharField(max_length=128, widget=forms.PasswordInput, label=ugettext_lazy('Password'))
     next_url = forms.CharField(max_length=128, required=False, widget=forms.HiddenInput)
 
-    def clean(self):
-        username = self.cleaned_data.get('username')
-        password = self.cleaned_data.get('password')
-
-        if username and password:
+    def is_valid(self):
+        is_valid = super(AuthenticationForm, self).is_valid()
+        if is_valid:
+            username = self.cleaned_data['username']
+            password = self.cleaned_data['password']
             user_authenticated = authenticate(username=username, password=password)
             if user_authenticated is None:
                 self.add_error('password', forms.ValidationError(
                     ugettext('Incorrect password'),
                     code='incorrect_password'
                 ))
+                is_valid = False
             else:
                 self.cleaned_data['user_authenticated'] = user_authenticated
-
-        return self.cleaned_data
+        return is_valid

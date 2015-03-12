@@ -15,7 +15,7 @@ class LoginView(mixins.MessagesMixin, generic.FormView):
     error_message = _('There was an error trying login')
 
     def __init__(self, **kwargs):
-        self.success_url = reverse('accounts:user_profile_detail')
+        self.success_url = reverse('accounts:detail_user_profile')
 
     def form_valid(self, form):
         login(self.request, form.cleaned_data['user_authenticated'])

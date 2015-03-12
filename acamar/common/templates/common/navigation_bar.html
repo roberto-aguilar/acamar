@@ -23,7 +23,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ user.get_full_name }} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="{% url 'accounts:user_profile_detail' %}">{% trans 'Profile' %}</a>
+                            <a href="{% url 'accounts:detail_user_profile' %}">{% trans 'Profile' %}</a>
                         </li>
                         <li>
                             <a href="{% url 'accounts:logout' %}">{% trans 'Logout' %}</a>
@@ -35,7 +35,7 @@
                     <a href="{% url 'accounts:login' %}">{% trans 'Login' %}</a>
                 </li>
                 <li>
-                    <a href="{% url 'accounts:register' %}">{% trans 'Register' %}</a>
+                    <a href="{% url 'accounts:create_user_profile' %}">{% trans 'Register' %}</a>
                 </li>
                 {% endif %}
                 <li>

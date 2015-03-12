@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from accounts import models, forms
 
 
-class TestUpdateUserProfileForm(TestCase):
+class TestUserProfileUpdateForm(TestCase):
 
     def create_test_user(self):
         kwargs = {
@@ -26,7 +26,7 @@ class TestUpdateUserProfileForm(TestCase):
     def test_form_expected_fields(self):
         expected_fields = ['first_name', 'last_name', 'email', 'image']
         test_user_profile = self.create_test_user_profile()
-        form = forms.UpdateUserProfileForm(instance=test_user_profile.authentication_user)
+        form = forms.UserProfileUpdateForm(instance=test_user_profile.authentication_user)
         self.assertEqual(expected_fields, form.fields.keys(),
             'Expect expected form fields to be equal to form fields')
 
@@ -42,7 +42,7 @@ class TestUpdateUserProfileForm(TestCase):
             'image': SimpleUploadedFile(content=base64_image,
                 name='profile-photo-updated.png', content_type='image/jpeg')
         }
-        form = forms.UpdateUserProfileForm(data=form_data, files=form_files,
+        form = forms.UserProfileUpdateForm(data=form_data, files=form_files,
             instance=test_user_profile.authentication_user)
         self.assertTrue(form.is_valid(),
             'Expected form to be valid with valid data provided')
@@ -63,7 +63,7 @@ class TestUpdateUserProfileForm(TestCase):
     def test_form_without_required_fields_provided(self):
         test_user_profile = self.create_test_user_profile()
         form_data = dict()
-        form = forms.UpdateUserProfileForm(form_data, instance=test_user_profile.authentication_user)
+        form = forms.UserProfileUpdateForm(form_data, instance=test_user_profile.authentication_user)
         self.assertFalse(form.is_valid(),
             'Expected form to be invalid without required fields provided')
         self.assertIn('first_name', form.errors,
@@ -79,13 +79,13 @@ class TestUpdateUserProfileForm(TestCase):
         expected_exception_message = 'The username "{username}" does not have a related UserProfile'.format(
             username=test_user.username)
         self.assertRaisesMessage(ValidationError, expected_exception_message,
-            forms.UpdateUserProfileForm, **{
+            forms.UserProfileUpdateForm, **{
                 'data': form_data,
                 'instance': test_user
             })
 
     def test_form_has_image_in_initial_form_values(self):
         test_user_profile = self.create_test_user_profile()
-        form = forms.UpdateUserProfileForm(instance=test_user_profile.authentication_user)
+        form = forms.UserProfileUpdateForm(instance=test_user_profile.authentication_user)
         self.assertIn('image', form.initial,
             'Expected image form field to be in initial form values')

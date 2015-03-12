@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-12 20:15+0000\n"
+"POT-Creation-Date: 2015-03-12 21:46+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -25,28 +25,44 @@ msgstr "Contraseña"
 msgid "Incorrect password"
 msgstr "Contraseña incorrecta"
 
-#: accounts/forms/create_user_profile_form.py:8
-#: accounts/forms/update_user_profile_form.py:9
+#: accounts/forms/user_profile_create_form.py:8
+#: accounts/forms/user_profile_update_form.py:9
 msgid "Profile image"
 msgstr "Imagen de perfil"
 
-#: accounts/forms/create_user_profile_form.py:9
+#: accounts/forms/user_profile_create_form.py:9
 msgid "Confirm password"
 msgstr "Confirmar contraseña"
 
-#: accounts/forms/create_user_profile_form.py:15
-#: accounts/forms/update_user_profile_form.py:15
+#: accounts/forms/user_profile_create_form.py:15
+#: accounts/forms/user_profile_update_form.py:15
 msgid "Email address"
 msgstr "Dirección de correo electrónico"
 
-#: accounts/forms/create_user_profile_form.py:35
-#: accounts/forms/create_user_profile_form.py:40
+#: accounts/forms/user_profile_create_form.py:35
+#: accounts/forms/user_profile_create_form.py:40
 msgid "Passwords does not match"
 msgstr "Las contraseñas no coinciden"
 
 #: accounts/templates/accounts/create_user_profile.html:16
 msgid "Register"
 msgstr "Registrarse"
+
+#: accounts/templates/accounts/detail_user_profile.html:18
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: accounts/templates/accounts/detail_user_profile.html:19
+msgid "Date joined"
+msgstr "Fecha de registro"
+
+#: accounts/templates/accounts/detail_user_profile.html:20
+msgid "Last login"
+msgstr "Último inicio de sesión"
+
+#: accounts/templates/accounts/detail_user_profile.html:22
+msgid "Edit profile"
+msgstr "Editar perfil"
 
 #: accounts/templates/accounts/login.html:16
 msgid "Login"
@@ -56,37 +72,21 @@ msgstr "Iniciar sesión"
 msgid "Update profile"
 msgstr "Actualizar perfil"
 
-#: accounts/templates/accounts/user_profile_detail.html:18
-msgid "Email"
-msgstr "Correo electrónico"
-
-#: accounts/templates/accounts/user_profile_detail.html:19
-msgid "Date joined"
-msgstr "Fecha de registro"
-
-#: accounts/templates/accounts/user_profile_detail.html:20
-msgid "Last login"
-msgstr "Último inicio de sesión"
-
-#: accounts/templates/accounts/user_profile_detail.html:22
-msgid "Edit profile"
-msgstr "Editar perfil"
-
 #: accounts/urls.py:7
-msgid "^register/$"
-msgstr "^registro/$"
-
-#: accounts/urls.py:8
 msgid "^login/$"
 msgstr "^iniciar-sesion/$"
 
-#: accounts/urls.py:9
+#: accounts/urls.py:8
 msgid "^logout/$"
 msgstr "^cerrar-sesion/$"
 
-#: accounts/urls.py:10
+#: accounts/urls.py:9
 msgid "^profile/$"
 msgstr "^perfil/$"
+
+#: accounts/urls.py:10
+msgid "^create-profile/$"
+msgstr "^crear-perfil/$"
 
 #: accounts/urls.py:11
 msgid "^update-profile/$"
@@ -106,14 +106,6 @@ msgstr "La cuenta asociada al usuario \"%(username)s\" esta inactiva"
 #, python-format
 msgid "The username \"%(username)s\" already exists"
 msgstr "El usuario \"%(username)s\" ya existe"
-
-#: accounts/views/create_user_profile_view.py:12
-msgid "User profile created successfully"
-msgstr "Perfil de usuario creado exitosamente"
-
-#: accounts/views/create_user_profile_view.py:13
-msgid "There was an error trying to create user profile"
-msgstr "Hubo un error al intentar crear el perfil de usuario"
 
 #: accounts/views/login_view.py:14
 msgid "Successful login"
@@ -135,10 +127,21 @@ msgstr "Cierre de sesión exitoso"
 msgid "There is no user logged in"
 msgstr "No hay usuario con sesión iniciada"
 
-#: accounts/views/update_user_profile_view.py:13
+#: accounts/views/user_profile_create_view.py:12
+msgid "User profile created successfully"
+msgstr "Perfil de usuario creado exitosamente"
+
+#: accounts/views/user_profile_create_view.py:13
+msgid "There was an error trying to create user profile"
+msgstr "Hubo un error al intentar crear el perfil de usuario"
+
+#: accounts/views/user_profile_update_view.py:12
 msgid "User profile successfully updated"
 msgstr "Perfil de usuario actualizado exitosamente"
 
-#: accounts/views/update_user_profile_view.py:14
+#: accounts/views/user_profile_update_view.py:13
 msgid "An error ocurred trying to update the user profile"
 msgstr "Hubo un error al intentar actualizar el perfil de usuario"
+
+#~ msgid "^register/$"
+#~ msgstr "^registro/$"

@@ -6,7 +6,7 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 class TestUserProfileCreateView(TestCase):
 
     def setUp(self):
-        self.register_url = reverse('accounts:register')
+        self.create_user_profile_url = reverse('accounts:create_user_profile')
 
     def test_view_with_correct_data_provided(self):
         success_url = reverse('accounts:login')
@@ -21,7 +21,7 @@ class TestUserProfileCreateView(TestCase):
             'image': SimpleUploadedFile(content=base64_image,
                 name='profile-photo.png', content_type='image/jpeg')
         }
-        response = self.client.post(self.register_url, form_data, follow=True)
+        response = self.client.post(self.create_user_profile_url, form_data, follow=True)
         self.assertRedirects(response, expected_url=success_url,
             msg_prefix='Expected redirect after correct data provided')
         messages_storage = response.context['messages']
@@ -41,7 +41,7 @@ class TestUserProfileCreateView(TestCase):
             'image': SimpleUploadedFile(content=base64_image,
                 name='profile-photo.png', content_type='image/jpeg')
         }
-        response = self.client.post(self.register_url, form_data)
+        response = self.client.post(self.create_user_profile_url, form_data)
         messages_storage = response.context['messages']
         loaded_messages = [message.message for message in messages_storage._loaded_messages]
         self.assertIn('There was an error trying to create user profile', loaded_messages,
@@ -66,7 +66,7 @@ class TestUserProfileCreateView(TestCase):
             'image': SimpleUploadedFile(content=base64_image,
                 name='profile-photo.png', content_type='image/jpeg')
         }
-        response = self.client.post(self.register_url, form_data)
+        response = self.client.post(self.create_user_profile_url, form_data)
         messages_storage = response.context['messages']
         loaded_messages = [message.message for message in messages_storage._loaded_messages]
         self.assertIn('There was an error trying to create user profile', loaded_messages,

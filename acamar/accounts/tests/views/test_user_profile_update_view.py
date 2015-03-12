@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from accounts import models, forms
 
 
-class TestUpdateUserProfileView(TestCase):
+class TestUserProfileUpdateView(TestCase):
 
     def setUp(self):
         self.update_user_profile_url = reverse('accounts:update_user_profile')
@@ -33,8 +33,8 @@ class TestUpdateUserProfileView(TestCase):
         self.assertTemplateUsed(response, 'accounts/update_user_profile.html',
             msg_prefix='Expected template accounts/update_user_profile.html to be used')
         form = response.context['form']
-        self.assertEqual(form.__class__, forms.UpdateUserProfileForm,
-            'Expected form class to be UpdateUserProfileForm')
+        self.assertEqual(form.__class__, forms.UserProfileUpdateForm,
+            'Expected form class to be UserProfileUpdateForm')
         self.assertEqual(test_user_profile.authentication_user.first_name, form.initial['first_name'],
             'Expected request user "first_name" to be equal to form initial "first_name')
         self.assertEqual(test_user_profile.authentication_user.last_name, form.initial['last_name'],

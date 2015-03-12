@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 from accounts import models
 
 
-class UpdateUserProfileForm(forms.ModelForm):
+class UserProfileUpdateForm(forms.ModelForm):
     image = forms.ImageField(required=False, label=ugettext_lazy('Profile image'))
 
     class Meta:
@@ -16,7 +16,7 @@ class UpdateUserProfileForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        super(UpdateUserProfileForm, self).__init__(*args, **kwargs)
+        super(UserProfileUpdateForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
         self.fields['email'].required = True
@@ -34,7 +34,7 @@ class UpdateUserProfileForm(forms.ModelForm):
         })
 
     def save(self, commit=True):
-        user = super(UpdateUserProfileForm, self).save(commit=False)
+        user = super(UserProfileUpdateForm, self).save(commit=False)
         user_profile = models.UserProfile.objects.get(authentication_user=user)
         user_profile.image = self.cleaned_data['image']
         if commit:

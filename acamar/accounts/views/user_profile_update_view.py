@@ -6,17 +6,17 @@ from accounts.mixins import LoginRequiredMixin
 from common.mixins import MessagesMixin
 
 
-class UpdateUserProfileView(LoginRequiredMixin, MessagesMixin, generic.CreateView):
+class UserProfileUpdateView(LoginRequiredMixin, MessagesMixin, generic.CreateView):
     template_name = 'accounts/update_user_profile.html'
-    form_class = forms.UpdateUserProfileForm
+    form_class = forms.UserProfileUpdateForm
     success_message = _('User profile successfully updated')
     error_message = _('An error ocurred trying to update the user profile')
 
     def get_success_url(self):
-        return reverse('accounts:user_profile_detail')
+        return reverse('accounts:detail_user_profile')
 
     def get_form_kwargs(self):
-        kwargs = super(UpdateUserProfileView, self).get_form_kwargs()
+        kwargs = super(UserProfileUpdateView, self).get_form_kwargs()
         kwargs.update({
             'instance': self.request.user
         })

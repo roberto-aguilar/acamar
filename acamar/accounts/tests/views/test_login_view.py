@@ -9,7 +9,7 @@ class TestLoginView(TestCase):
         self.login_url = reverse('accounts:login')
 
     def test_view_with_user_authenticated(self):
-        user_profile_detail_url = reverse('accounts:user_profile_detail')
+        user_profile_detail_url = reverse('accounts:detail_user_profile')
         User.objects.create_user('test_username', 'test@test.com', 'test_password')
         self.client.login(username='test_username', password='test_password')
         response = self.client.get(self.login_url, follow=True)
@@ -45,7 +45,7 @@ class TestLoginView(TestCase):
     def test_view_with_user_not_authenticated_and_valid_authentication_data_provided(self):
         User.objects.create_user(
             username='test_username', email='test@test.com', password='test_password')
-        user_profile_detail_url = reverse('accounts:user_profile_detail')
+        user_profile_detail_url = reverse('accounts:detail_user_profile')
         form_data = {
             'username': 'test_username',
             'password': 'test_password'

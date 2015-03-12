@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class TestUserProfileDetailView(TestCase):
 
     def setUp(self):
-        self.user_profile_detail_url = reverse('accounts:user_profile_detail')
+        self.user_profile_detail_url = reverse('accounts:detail_user_profile')
 
     def test_view_with_user_authenticated(self):
         test_user = User.objects.create_user('test_username', 'test@test.com', 'test_password')

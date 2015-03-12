@@ -18,7 +18,7 @@
                     <p><strong>{% trans 'Email' %}:</strong> {{ user.email }}</p>
                     <p><strong>{% trans 'Date joined' %}:</strong> {{ user.date_joined }}</p>
                     <p><strong>{% trans 'Last login' %}:</strong> {{ user.last_login }}</p>
-                    <a href="#">
+                    <a href="{% url 'accounts:update_user_profile' %}">
                         <btn class="btn btn-success">{% trans 'Edit profile' %}</btn>
                     </a>
                 </div>

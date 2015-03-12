@@ -1,0 +1,23 @@
+{% extends 'common/base.html' %}
+
+{% load i18n %}
+
+{% load bootstrap3 %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <form enctype="multipart/form-data" action="{% url 'accounts:update_user_profile' %}" method="post" class="form" novalidate>
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                <button type="submit" class="btn btn-success">{% trans 'Update profile' %}</button>
+                {% endbuttons %}
+            </form>
+        </div><!-- col-md -->
+    </div><!-- row -->
+</div><!-- container -->
+
+{% endblock %}

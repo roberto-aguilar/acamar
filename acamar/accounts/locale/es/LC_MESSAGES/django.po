@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-11 07:34+0000\n"
+"POT-Creation-Date: 2015-03-12 20:15+0000\n"
 "PO-Revision-Date: 2015-03-06 03:11+0000\n"
 "Last-Translator: Roberto Aguilar <raguilar@dojogeek.io>\n"
 "Language: Español\n"
@@ -13,114 +13,132 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: acamar/accounts/forms/authentication_form.py:9
+#: accounts/forms/authentication_form.py:9
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: acamar/accounts/forms/authentication_form.py:10
+#: accounts/forms/authentication_form.py:10
 msgid "Password"
 msgstr "Contraseña"
 
-#: acamar/accounts/forms/authentication_form.py:21
+#: accounts/forms/authentication_form.py:21
 msgid "Incorrect password"
 msgstr "Contraseña incorrecta"
 
-#: acamar/accounts/forms/create_user_profile_form.py:8
+#: accounts/forms/create_user_profile_form.py:8
+#: accounts/forms/update_user_profile_form.py:9
 msgid "Profile image"
 msgstr "Imagen de perfil"
 
-#: acamar/accounts/forms/create_user_profile_form.py:9
+#: accounts/forms/create_user_profile_form.py:9
 msgid "Confirm password"
 msgstr "Confirmar contraseña"
 
-#: acamar/accounts/forms/create_user_profile_form.py:15
+#: accounts/forms/create_user_profile_form.py:15
+#: accounts/forms/update_user_profile_form.py:15
 msgid "Email address"
 msgstr "Dirección de correo electrónico"
 
-#: acamar/accounts/forms/create_user_profile_form.py:35
-#: acamar/accounts/forms/create_user_profile_form.py:40
+#: accounts/forms/create_user_profile_form.py:35
+#: accounts/forms/create_user_profile_form.py:40
 msgid "Passwords does not match"
 msgstr "Las contraseñas no coinciden"
 
-#: acamar/accounts/templates/accounts/create_user_profile.html:16
+#: accounts/templates/accounts/create_user_profile.html:16
 msgid "Register"
 msgstr "Registrarse"
 
-#: acamar/accounts/templates/accounts/login.html:16
+#: accounts/templates/accounts/login.html:16
 msgid "Login"
 msgstr "Iniciar sesión"
 
-#: acamar/accounts/templates/accounts/user_profile_detail.html:18
+#: accounts/templates/accounts/update_user_profile.html:16
+msgid "Update profile"
+msgstr "Actualizar perfil"
+
+#: accounts/templates/accounts/user_profile_detail.html:18
 msgid "Email"
 msgstr "Correo electrónico"
 
-#: acamar/accounts/templates/accounts/user_profile_detail.html:19
+#: accounts/templates/accounts/user_profile_detail.html:19
 msgid "Date joined"
 msgstr "Fecha de registro"
 
-#: acamar/accounts/templates/accounts/user_profile_detail.html:20
+#: accounts/templates/accounts/user_profile_detail.html:20
 msgid "Last login"
 msgstr "Último inicio de sesión"
 
-#: acamar/accounts/templates/accounts/user_profile_detail.html:22
+#: accounts/templates/accounts/user_profile_detail.html:22
 msgid "Edit profile"
 msgstr "Editar perfil"
 
-#: acamar/accounts/urls.py:7
+#: accounts/urls.py:7
 msgid "^register/$"
 msgstr "^registro/$"
 
-#: acamar/accounts/urls.py:8
+#: accounts/urls.py:8
 msgid "^login/$"
 msgstr "^iniciar-sesion/$"
 
-#: acamar/accounts/urls.py:9
+#: accounts/urls.py:9
 msgid "^logout/$"
 msgstr "^cerrar-sesion/$"
 
-#: acamar/accounts/urls.py:10
+#: accounts/urls.py:10
 msgid "^profile/$"
 msgstr "^perfil/$"
 
-#: acamar/accounts/validators/authentication_validators.py:11
+#: accounts/urls.py:11
+msgid "^update-profile/$"
+msgstr "^actualizar-perfil/$"
+
+#: accounts/validators/authentication_validators.py:11
 #, python-format
 msgid "The \"%(username)s\" account does not exists"
 msgstr "La cuenta asociada al usuario \"%(username)s\" no existe"
 
-#: acamar/accounts/validators/authentication_validators.py:24
+#: accounts/validators/authentication_validators.py:24
 #, python-format
 msgid "The account with username \"%(username)s\" is inactive"
 msgstr "La cuenta asociada al usuario \"%(username)s\" esta inactiva"
 
-#: acamar/accounts/validators/user_profile_validators.py:10
+#: accounts/validators/user_profile_validators.py:10
 #, python-format
 msgid "The username \"%(username)s\" already exists"
 msgstr "El usuario \"%(username)s\" ya existe"
 
-#: acamar/accounts/views/create_user_profile_view.py:12
+#: accounts/views/create_user_profile_view.py:12
 msgid "User profile created successfully"
 msgstr "Perfil de usuario creado exitosamente"
 
-#: acamar/accounts/views/create_user_profile_view.py:13
+#: accounts/views/create_user_profile_view.py:13
 msgid "There was an error trying to create user profile"
 msgstr "Hubo un error al intentar crear el perfil de usuario"
 
-#: acamar/accounts/views/login_view.py:14
+#: accounts/views/login_view.py:14
 msgid "Successful login"
 msgstr "Inicio de sesión exitoso"
 
-#: acamar/accounts/views/login_view.py:15
+#: accounts/views/login_view.py:15
 msgid "There was an error trying login"
 msgstr "Hubo un error al intentar iniciar sesión"
 
-#: acamar/accounts/views/login_view.py:36
+#: accounts/views/login_view.py:36
 msgid "Already logged in"
 msgstr "Sesión ya iniciada"
 
-#: acamar/accounts/views/logout_view.py:14
+#: accounts/views/logout_view.py:14
 msgid "Logout successful"
 msgstr "Cierre de sesión exitoso"
 
-#: acamar/accounts/views/logout_view.py:16
+#: accounts/views/logout_view.py:16
 msgid "There is no user logged in"
 msgstr "No hay usuario con sesión iniciada"
+
+#: accounts/views/update_user_profile_view.py:13
+msgid "User profile successfully updated"
+msgstr "Perfil de usuario actualizado exitosamente"
+
+#: accounts/views/update_user_profile_view.py:14
+msgid "An error ocurred trying to update the user profile"
+msgstr "Hubo un error al intentar actualizar el perfil de usuario"

@@ -3,7 +3,7 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from accounts import forms
 
 
-class TestCreateUserProfileForm(TestCase):
+class TestUserProfileCreateForm(TestCase):
 
     def test_form_with_correct_data_provided(self):
         form_data = {
@@ -19,7 +19,7 @@ class TestCreateUserProfileForm(TestCase):
             'image': SimpleUploadedFile(content=base64_image,
                 name='profile-photo.png', content_type='image/jpeg')
         }
-        form = forms.CreateUserProfileForm(data=form_data, files=form_files)
+        form = forms.UserProfileCreateForm(data=form_data, files=form_files)
         self.assertTrue(form.is_valid(),
             'Expected form to be valid with correct data provided')
 
@@ -32,7 +32,7 @@ class TestCreateUserProfileForm(TestCase):
             'last_name': '',
             'email': ''
         }
-        form = forms.CreateUserProfileForm(data=form_data)
+        form = forms.UserProfileCreateForm(data=form_data)
         self.assertFalse(form.is_valid(),
             'Expected form invalid without required fields provided')
         self.assertIn('first_name', form.errors,
@@ -47,7 +47,7 @@ class TestCreateUserProfileForm(TestCase):
             'password': 'password',
             'confirm_password': 'mismatched_password'
         }
-        form = forms.CreateUserProfileForm(data=form_data)
+        form = forms.UserProfileCreateForm(data=form_data)
         self.assertFalse(form.is_valid(),
             'Expected form invalid with mismatched passwords provided')
         self.assertIn('password', form.errors,

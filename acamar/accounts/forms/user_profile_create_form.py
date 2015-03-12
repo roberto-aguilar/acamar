@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from accounts import models, validators
 
 
-class CreateUserProfileForm(forms.ModelForm):
+class UserProfileCreateForm(forms.ModelForm):
     image = forms.ImageField(required=False, label=ugettext_lazy('Profile image'))
     confirm_password = forms.CharField(widget=forms.PasswordInput, label=ugettext_lazy('Confirm password'))
 
@@ -19,7 +19,7 @@ class CreateUserProfileForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        super(CreateUserProfileForm, self).__init__(*args, **kwargs)
+        super(UserProfileCreateForm, self).__init__(*args, **kwargs)
         self.fields['username'].validators.append(validators.validate_username_does_not_exist)
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
@@ -44,7 +44,7 @@ class CreateUserProfileForm(forms.ModelForm):
         return self.cleaned_data
 
     def save(self, commit=True):
-        user = super(CreateUserProfileForm, self).save(commit=False)
+        user = super(UserProfileCreateForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password"])
         if commit:
             user.save()

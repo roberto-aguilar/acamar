@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from django.core.files.uploadedfile import SimpleUploadedFile
 
 
-class TestCreateUserProfileView(TestCase):
+class TestUserProfileCreateView(TestCase):
 
     def setUp(self):
         self.register_url = reverse('accounts:register')

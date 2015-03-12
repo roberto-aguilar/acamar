@@ -5,10 +5,10 @@ from accounts import models, forms
 from common import mixins
 
 
-class CreateUserProfileView(mixins.MessagesMixin, generic.CreateView):
+class UserProfileCreateView(mixins.MessagesMixin, generic.CreateView):
     model = models.UserProfile
     template_name = 'accounts/create_user_profile.html'
-    form_class = forms.CreateUserProfileForm
+    form_class = forms.UserProfileCreateForm
     success_message = _('User profile created successfully')
     error_message = _('There was an error trying to create user profile')
 

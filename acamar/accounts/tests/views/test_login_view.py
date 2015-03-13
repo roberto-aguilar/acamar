@@ -9,17 +9,19 @@ class TestLoginView(TestCase):
     def setUp(self):
         self.login_url = reverse('accounts:login')
 
-    def test_view_with_user_authenticated(self):
-        user_profile_detail_url = reverse('accounts:detail_user_profile')
+    def create_test_user_profile(self):
         test_user = User.objects.create_user(
             username='test_username', email='test@test.com',
             password='test_password')
-        models.UserProfile.objects.create(
+        return models.UserProfile.objects.create(
             authentication_user=test_user)
+
+    def test_view_with_user_authenticated(self):
+        user_profile_detail_url = reverse('accounts:detail_user_profile')
+        self.create_test_user_profile()
         self.client.login(username='test_username', password='test_password')
         response = self.client.get(self.login_url, follow=True)
-        self.assertRedirects(response, expected_url=user_profile_detail_url,
-            msg_prefix='Expected response redirect to user profile view on already authenticated users')
+        self.assertRedirects(response=response, expected_url=user_profile_detail_url)
         messages_storage = response.context['messages']
         loaded_messages = [message.message for message in messages_storage._loaded_messages]
         self.assertIn('Already logged in', loaded_messages,
@@ -66,16 +68,15 @@ class TestLoginView(TestCase):
             'Expect message to be in loaded messages')
 
     def test_view_with_user_not_authenticated_and_valid_authentication_data_provided_including_next_url_parameter(self):
-        User.objects.create_user(
-            username='test_username', email='test@test.com', password='test_password')
-        index_url = reverse('common:index')
+        self.create_test_user_profile()
+        user_profile_detail_url = reverse('accounts:detail_user_profile')
         form_data = {
             'username': 'test_username',
             'password': 'test_password',
-            'next_url': index_url
+            'next_url': user_profile_detail_url
         }
         response = self.client.post(self.login_url, form_data, follow=True)
-        self.assertRedirects(response, expected_url=index_url,
+        self.assertRedirects(response, expected_url=user_profile_detail_url,
             msg_prefix='Expected redirect to "next_url" url value with valid authentication data provided')
         messages_storage = response.context['messages']
         loaded_messages = [message.message for message in messages_storage._loaded_messages]

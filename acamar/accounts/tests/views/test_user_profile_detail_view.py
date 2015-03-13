@@ -9,6 +9,13 @@ class TestUserProfileDetailView(TestCase):
     def setUp(self):
         self.user_profile_detail_url = reverse('accounts:detail_user_profile')
 
+    def create_test_user_profile(self):
+        test_user = User.objects.create_user(
+            username='test_username', email='test@test.com',
+            password='test_password')
+        return models.UserProfile.objects.create(
+            authentication_user=test_user)
+
     def test_view_with_user_not_authenticated(self):
         login_url = reverse('accounts:login')
         expected_url = '{login_url}?next={user_profile_detail_url}'.format(
@@ -18,11 +25,7 @@ class TestUserProfileDetailView(TestCase):
         self.assertRedirects(response, expected_url=expected_url)
 
     def test_view_with_user_authenticated(self):
-        test_user = User.objects.create_user(
-            username='test_username', email='test@test.com',
-            password='test_password')
-        test_user_profile = models.UserProfile.objects.create(
-            authentication_user=test_user)
+        test_user_profile = self.create_test_user_profile()
         self.client.login(username='test_username', password='test_password')
         response = self.client.get(self.user_profile_detail_url)
         self.assertTemplateUsed(response=response,

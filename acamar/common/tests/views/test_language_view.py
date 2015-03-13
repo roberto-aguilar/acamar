@@ -6,8 +6,11 @@ class TestLanguageView(TestCase):
 
     def test_language_view_redirect(self):
         language_url = reverse('common:language')
-        HTTP_200_OK = 200
         response = self.client.get(language_url)
-        self.assertEqual(response.status_code, HTTP_200_OK,
-            'Expected response status code 200, received instead {status_code}'.format(
-                status_code=response.status_code))
+        self.assertTemplateUsed(
+            response=response, template_name='common/language.html')
+        self.assertIn('redirect_to_url', response.context,
+            'Expected redirect_to_url key to be in response context')
+        index_url = reverse('common:index')
+        self.assertEqual(index_url, response.context['redirect_to_url'],
+            'Expected index url to be equal to redirect_to_url in context')

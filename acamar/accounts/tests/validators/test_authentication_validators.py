@@ -26,3 +26,7 @@ class TestAuthenticationValidators(TestCase):
             username=test_user.username)
         self.assertRaisesMessage(ValidationError, expected_exception_message,
                 validators.validate_user_is_active, (test_user.username))
+
+    def test_validate_user_is_active_with_user_that_does_not_exist(self):
+        self.assertIsNone(validators.validate_user_is_active('test_username'),
+            'Expected None as a return value with active username provided')

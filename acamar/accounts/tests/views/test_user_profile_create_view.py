@@ -1,12 +1,37 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.contrib.auth.models import User
+from accounts import models, forms
 
 
 class TestUserProfileCreateView(TestCase):
 
     def setUp(self):
         self.create_user_profile_url = reverse('accounts:create_user_profile')
+
+    def create_test_user_profile(self):
+        test_user = User.objects.create_user(
+            username='test_username', email='test@test.com',
+            password='test_password')
+        return models.UserProfile.objects.create(
+            authentication_user=test_user)
+
+    def test_view_with_user_not_authenticated(self):
+        response = self.client.get(self.create_user_profile_url)
+        self.assertTemplateUsed(
+            response=response,
+            template_name='accounts/create_user_profile.html')
+        form = response.context['form']
+        self.assertEqual(form.__class__, forms.UserProfileCreateForm,
+            'Expected view form class to be UserProfileCreateForm')
+
+    def test_view_with_user_authenticated(self):
+        self.create_test_user_profile()
+        detail_user_profile_url = reverse('accounts:detail_user_profile')
+        self.client.login(username='test_username', password='test_password')
+        response = self.client.get(self.create_user_profile_url)
+        self.assertRedirects(response, expected_url=detail_user_profile_url)
 
     def test_view_with_correct_data_provided(self):
         success_url = reverse('accounts:login')

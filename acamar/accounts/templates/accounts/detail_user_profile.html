@@ -12,12 +12,12 @@
     <div class="row">
         <div class="col-md-4 col-sm-6 col-sm-offset-0 col-xs-12">
             <div class="thumbnail">
-                <img class="img-rounded" src="{% static 'accounts/img/profile-photo.png' %}" />
+                <img class="img-rounded" src="{{ user_profile.image.url }}" />
                 <div class="caption">
-                    <h3>{{ user.get_full_name }}</h3>
-                    <p><strong>{% trans 'Email' %}:</strong> {{ user.email }}</p>
-                    <p><strong>{% trans 'Date joined' %}:</strong> {{ user.date_joined }}</p>
-                    <p><strong>{% trans 'Last login' %}:</strong> {{ user.last_login }}</p>
+                    <h3>{{ user_profile.authentication_user.get_full_name }}</h3>
+                    <p><strong>{% trans 'Email' %}:</strong> {{ user_profile.authentication_user.email }}</p>
+                    <p><strong>{% trans 'Date joined' %}:</strong> {{ user_profile.authentication_user.date_joined }}</p>
+                    <p><strong>{% trans 'Last login' %}:</strong> {{ user_profile.authentication_user.last_login }}</p>
                     <a href="{% url 'accounts:update_user_profile' %}">
                         <btn class="btn btn-success">{% trans 'Edit profile' %}</btn>
                     </a>

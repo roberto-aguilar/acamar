@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from accounts import models
 
 
 class TestLoginView(TestCase):
@@ -10,7 +11,11 @@ class TestLoginView(TestCase):
 
     def test_view_with_user_authenticated(self):
         user_profile_detail_url = reverse('accounts:detail_user_profile')
-        User.objects.create_user('test_username', 'test@test.com', 'test_password')
+        test_user = User.objects.create_user(
+            username='test_username', email='test@test.com',
+            password='test_password')
+        models.UserProfile.objects.create(
+            authentication_user=test_user)
         self.client.login(username='test_username', password='test_password')
         response = self.client.get(self.login_url, follow=True)
         self.assertRedirects(response, expected_url=user_profile_detail_url,
@@ -43,8 +48,10 @@ class TestLoginView(TestCase):
             'Expected "next" form field value to be equal to url next parameter')
 
     def test_view_with_user_not_authenticated_and_valid_authentication_data_provided(self):
-        User.objects.create_user(
+        test_user = User.objects.create_user(
             username='test_username', email='test@test.com', password='test_password')
+        models.UserProfile.objects.create(
+            authentication_user=test_user)
         user_profile_detail_url = reverse('accounts:detail_user_profile')
         form_data = {
             'username': 'test_username',

@@ -1,5 +1,7 @@
 from django.test import TestCase
-from django.core.files.uploadedfile import SimpleUploadedFile
+from django import forms as django_forms
+from django.contrib.auth.models import User
+from accounts.validators import validate_username_does_not_exist
 from accounts import forms
 
 
@@ -14,12 +16,7 @@ class TestUserProfileCreateForm(TestCase):
             'last_name': 'test_last_name',
             'email': 'test@test.com'
         }
-        base64_image = b'GIF87a\x01\x00\x01\x00\x80\x01\x00\x00\x00\x00ccc,\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02D\x01\x00'  # noqa
-        form_files = {
-            'image': SimpleUploadedFile(content=base64_image,
-                name='profile-photo.png', content_type='image/jpeg')
-        }
-        form = forms.UserProfileCreateForm(data=form_data, files=form_files)
+        form = forms.UserProfileCreateForm(data=form_data)
         self.assertTrue(form.is_valid(),
             'Expected form to be valid with correct data provided')
 
@@ -54,3 +51,27 @@ class TestUserProfileCreateForm(TestCase):
             'Expected password form field to be in form errors')
         self.assertIn('confirm_password', form.errors,
             'Expected confirm password form field to be in form errors')
+
+    def test_form_username_has_custom_validator(self):
+        form = forms.UserProfileCreateForm()
+        username_validators = form.fields['username'].validators
+        self.assertIn(validate_username_does_not_exist, username_validators,
+            'Expect custom validator to be in username validators')
+
+    def test_form_model(self):
+        form = forms.UserProfileCreateForm
+        self.assertEqual(form._meta.model, User,
+            'Expected form model to be django.contrib.auth.models.User')
+
+    def test_form_fields(self):
+        form_fields = ['username', 'password', 'confirm_password', 'first_name',
+            'last_name', 'email']
+        form = forms.UserProfileCreateForm
+        self.assertEqual(form._meta.fields, form_fields,
+            'Expected form base fields to be equal to form fields')
+
+    def test_form_field_password_widget(self):
+        form = forms.UserProfileCreateForm()
+        password_widget = form.fields['password'].widget.__class__
+        self.assertEqual(password_widget, django_forms.PasswordInput,
+            'Expected password widget to be PasswordInput')

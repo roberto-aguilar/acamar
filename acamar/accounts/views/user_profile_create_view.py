@@ -16,9 +16,8 @@ class UserProfileCreateView(mixins.MessagesMixin, generic.CreateView):
         return reverse('accounts:login')
 
     def get(self, request, *args, **kwargs):
-        if self.request.user.is_authenticated():
+        if request.user.is_authenticated():
             detail_user_profile_url = reverse('accounts:detail_user_profile')
             return redirect(detail_user_profile_url)
         else:
-            return super(UserProfileCreateView, self).get(
-                request, *args, **kwargs)
+            return super(UserProfileCreateView, self).get(request, *args, **kwargs)

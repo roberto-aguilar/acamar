@@ -1,5 +1,5 @@
 from django.views import generic
-from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import login
@@ -33,12 +33,11 @@ class LoginView(mixins.MessagesMixin, generic.FormView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated():
-            messages.add_message(request, messages.INFO, _('Already logged in'))
-            return HttpResponseRedirect(self.get_success_url())
-        else:
-            form_class = self.get_form_class()
-            form = self.get_form(form_class)
-            return self.render_to_response(self.get_context_data(form=form))
+            messages.add_message(
+                request=request, level=messages.INFO,
+                message=_('Already logged in'))
+            return redirect(self.get_success_url())
+        return super(LoginView, self).get(request, *args, **kwargs)
 
     def get_initial(self):
         initial = super(LoginView, self).get_initial()

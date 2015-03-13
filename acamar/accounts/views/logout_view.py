@@ -11,7 +11,11 @@ class LogoutView(generic.RedirectView):
     def get(self, request, *args, **kwargs):
         if self.request.user.is_authenticated():
             logout(self.request)
-            messages.add_message(request, messages.SUCCESS, _('Logout successful'))
+            messages.add_message(
+                request=request, level=messages.SUCCESS,
+                message=_('Logout successful'))
         else:
-            messages.add_message(request, messages.ERROR, _('There is no user logged in'))
+            messages.add_message(
+                request=request, level=messages.ERROR,
+                message=_('There is no user logged in'))
         return super(LogoutView, self).get(request, *args, **kwargs)

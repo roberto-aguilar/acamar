@@ -21,7 +21,8 @@ class TestUserProfileCreateView(TestCase):
         self.assertTemplateUsed(
             response=response, template_name='accounts/create_user_profile.html')
         form = response.context['form']
-        self.assertEqual(form.__class__, forms.UserProfileCreateForm,
+        self.assertEqual(
+            form.__class__, forms.UserProfileCreateForm,
             'Expected form class to be UserProfileCreateForm')
 
     def test_view_with_user_authenticated(self):
@@ -43,13 +44,17 @@ class TestUserProfileCreateView(TestCase):
         }
         response = self.client.post(self.create_user_profile_url, form_data)
         form = response.context['form']
-        self.assertFalse(form.is_valid(),
+        self.assertFalse(
+            form.is_valid(),
             'Expected form to be invalid without required fields provided')
-        self.assertIn('first_name', form.errors,
+        self.assertIn(
+            'first_name', form.errors,
             'Expected "first_name" to be in form errors')
-        self.assertIn('last_name', form.errors,
+        self.assertIn(
+            'last_name', form.errors,
             'Expected "last_name" to be in form errors')
-        self.assertIn('email', form.errors,
+        self.assertIn(
+            'email', form.errors,
             'Expected "email" to be in form errors')
         messages_storage = response.context['messages']
         loaded_messages = [message.message for message in messages_storage._loaded_messages]
@@ -73,5 +78,6 @@ class TestUserProfileCreateView(TestCase):
             response=response, expected_url=login_url)
         messages_storage = response.context['messages']
         loaded_messages = [message.message for message in messages_storage._loaded_messages]
-        self.assertIn('User profile created successfully', loaded_messages,
+        self.assertIn(
+            'User profile created successfully', loaded_messages,
             'Expected error message to be in loaded messages')

@@ -13,9 +13,11 @@ class TestAuthenticationForm(TestCase):
     def test_validators_in_username_field(self):
         form = forms.AuthenticationForm
         form_validators = form.base_fields['username'].validators
-        self.assertIn(validators.validate_user_exists, form_validators,
+        self.assertIn(
+            validators.validate_user_exists, form_validators,
             'Expected validate_user_exists to be in form username validators')
-        self.assertIn(validators.validate_user_is_active, form_validators,
+        self.assertIn(
+            validators.validate_user_is_active, form_validators,
             'Expected validate_user_is_active to be in form username validators')
 
     def test_form_is_valid_with_correct_data_provided(self):
@@ -25,9 +27,11 @@ class TestAuthenticationForm(TestCase):
             'password': 'test_password'
         }
         form = forms.AuthenticationForm(data=form_data)
-        self.assertTrue(form.is_valid(),
+        self.assertTrue(
+            form.is_valid(),
             'Form expected to ve valid with correct data provided')
-        self.assertIn('user_authenticated', form.cleaned_data,
+        self.assertIn(
+            'user_authenticated', form.cleaned_data,
             'Expected user authenticated to be in form cleaned data')
 
     def test_form_is_invalid_with_incorrect_password(self):
@@ -37,11 +41,15 @@ class TestAuthenticationForm(TestCase):
             'password': 'invalid_password'
         }
         form = forms.AuthenticationForm(data=form_data)
-        self.assertFalse(form.is_valid(),
+        self.assertFalse(
+            form.is_valid(),
             'Form expected to be invalid with incorrect password provided')
-        self.assertIn('password', form.errors,
+        self.assertIn(
+            'password', form.errors,
             'Expected password form field to be in form errors')
-        self.assertNotIn('username', form.errors,
+        self.assertNotIn(
+            'username', form.errors,
             'Expected username not to be in form field errors')
-        self.assertNotIn('next_url', form.errors,
+        self.assertNotIn(
+            'next_url', form.errors,
             'Expected next_url not to be in form field errors')

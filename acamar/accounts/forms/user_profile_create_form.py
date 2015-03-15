@@ -11,8 +11,9 @@ class UserProfileCreateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'password', 'confirm_password',
-            'first_name', 'last_name', 'email']
+        fields = [
+            'username', 'password', 'confirm_password', 'first_name',
+            'last_name', 'email']
         labels = {
             'email': ugettext_lazy('Email address')
         }

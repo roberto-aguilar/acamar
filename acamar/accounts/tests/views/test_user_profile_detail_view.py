@@ -28,9 +28,12 @@ class TestUserProfileDetailView(TestCase):
         test_user_profile = self.create_test_user_profile()
         self.client.login(username='test_username', password='test_password')
         response = self.client.get(self.user_profile_detail_url)
-        self.assertTemplateUsed(response=response,
+        self.assertTemplateUsed(
+            response=response,
             template_name='accounts/detail_user_profile.html')
-        self.assertIn('user_profile', response.context,
+        self.assertIn(
+            'user_profile', response.context,
             'Expected request user profile to be in response context')
-        self.assertEqual(test_user_profile, response.context['user_profile'],
+        self.assertEqual(
+            test_user_profile, response.context['user_profile'],
             'Expected request user profile to be equal to response user profile')

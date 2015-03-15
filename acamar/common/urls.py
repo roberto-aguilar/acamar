@@ -3,7 +3,8 @@ from django.utils.translation import ugettext_lazy as _
 from common import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(_(r'^language/$'), views.LanguageView.as_view(), name='language'),
 )

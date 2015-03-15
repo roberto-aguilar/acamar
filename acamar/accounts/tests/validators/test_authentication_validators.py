@@ -15,16 +15,18 @@ class TestAuthenticationValidators(TestCase):
         return test_user
 
     def test_validate_user_exists_with_user_that_does_not_exist_(self):
-        expected_exception_message = 'The "{username}" account does not exists'.format(
-            username='test_username')
+        expected_exception_message = \
+            'The "{username}" account does not exists'.format(
+                username='test_username')
         self.assertRaisesMessage(
             ValidationError, expected_exception_message,
             validators.validate_user_exists, ('test_username'))
 
     def test_validate_user_is_active_with_inactive_user(self):
         test_user = self.create_inactive_user()
-        expected_exception_message = 'The account with username "{username}" is inactive'.format(
-            username=test_user.username)
+        expected_exception_message = \
+            'The account with username "{username}" is inactive'.format(
+                username=test_user.username)
         self.assertRaisesMessage(
             ValidationError, expected_exception_message,
             validators.validate_user_is_active, (test_user.username))

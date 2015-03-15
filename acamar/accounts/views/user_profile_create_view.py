@@ -20,4 +20,5 @@ class UserProfileCreateView(mixins.MessagesMixin, generic.CreateView):
             detail_user_profile_url = reverse('accounts:detail_user_profile')
             return redirect(detail_user_profile_url)
         else:
-            return super(UserProfileCreateView, self).get(request, *args, **kwargs)
+            return super(UserProfileCreateView, self).get(
+                request, *args, **kwargs)

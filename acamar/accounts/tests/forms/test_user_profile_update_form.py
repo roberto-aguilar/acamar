@@ -58,7 +58,8 @@ class TestUserProfileUpdateForm(TestCase):
             'last_name': '',
             'email': ''
         }
-        form = forms.UserProfileUpdateForm(form_data, instance=test_user_profile.authentication_user)
+        form = forms.UserProfileUpdateForm(
+            form_data, instance=test_user_profile.authentication_user)
         self.assertFalse(
             form.is_valid(),
             'Expected form to be invalid without required fields provided')
@@ -77,8 +78,9 @@ class TestUserProfileUpdateForm(TestCase):
             username='test_username', email='test@test.com',
             password='test_password')
         form_data = dict()
-        expected_exception_message = 'The username "{username}" does not have a related UserProfile'.format(
-            username=test_user.username)
+        expected_exception_message = \
+            'The username "{username}" does not have a related UserProfile'.format(
+                username=test_user.username)
         self.assertRaisesMessage(
             ValidationError, expected_exception_message,
             forms.UserProfileUpdateForm, **{

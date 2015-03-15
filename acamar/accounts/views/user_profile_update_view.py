@@ -1,4 +1,4 @@
-from django.views import generic
+from django.views.generic import CreateView
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from accounts import forms
@@ -6,7 +6,7 @@ from accounts.mixins import LoginRequiredMixin
 from common.mixins import MessagesMixin
 
 
-class UserProfileUpdateView(LoginRequiredMixin, MessagesMixin, generic.CreateView):
+class UserProfileUpdateView(LoginRequiredMixin, MessagesMixin, CreateView):
     template_name = 'accounts/update_user_profile.html'
     form_class = forms.UserProfileUpdateForm
     success_message = _('User profile successfully updated')

@@ -19,7 +19,8 @@ class TestUserProfileCreateView(TestCase):
     def test_view_with_user_not_authenticated(self):
         response = self.client.get(self.create_user_profile_url)
         self.assertTemplateUsed(
-            response=response, template_name='accounts/create_user_profile.html')
+            response=response,
+            template_name='accounts/create_user_profile.html')
         form = response.context['form']
         self.assertEqual(
             form.__class__, forms.UserProfileCreateForm,
@@ -57,7 +58,8 @@ class TestUserProfileCreateView(TestCase):
             'email', form.errors,
             'Expected "email" to be in form errors')
         messages_storage = response.context['messages']
-        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        loaded_messages = [
+            message.message for message in messages_storage._loaded_messages]
         self.assertIn(
             'There was an error trying to create user profile', loaded_messages,
             'Expected error message to be in loaded messages')
@@ -77,7 +79,8 @@ class TestUserProfileCreateView(TestCase):
         self.assertRedirects(
             response=response, expected_url=login_url)
         messages_storage = response.context['messages']
-        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        loaded_messages = [
+            message.message for message in messages_storage._loaded_messages]
         self.assertIn(
             'User profile created successfully', loaded_messages,
             'Expected error message to be in loaded messages')

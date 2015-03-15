@@ -55,7 +55,8 @@ class TestUserProfileUpdateView(TestCase):
         self.assertRedirects(
             response=response, expected_url=detail_user_profile_url)
         messages_storage = response.context['messages']
-        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        loaded_messages = [
+            message.message for message in messages_storage._loaded_messages]
         self.assertIn(
             'User profile successfully updated', loaded_messages,
             'Expectec success message to be in loaded messages')
@@ -83,7 +84,8 @@ class TestUserProfileUpdateView(TestCase):
             'email', form.errors,
             'Expected "email" to be in form errors')
         messages_storage = response.context['messages']
-        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        loaded_messages = [
+            message.message for message in messages_storage._loaded_messages]
         self.assertIn(
             'An error ocurred trying to update the user profile', loaded_messages,
             'Expected error message to be in loaded messages')

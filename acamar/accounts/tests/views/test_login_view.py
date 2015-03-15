@@ -24,7 +24,8 @@ class TestLoginView(TestCase):
         self.assertRedirects(
             response=response, expected_url=user_profile_detail_url)
         messages_storage = response.context['messages']
-        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        loaded_messages = [
+            message.message for message in messages_storage._loaded_messages]
         self.assertIn(
             'Already logged in', loaded_messages,
             'Expect message to be in loaded messages')
@@ -69,7 +70,8 @@ class TestLoginView(TestCase):
         response = self.client.post(self.login_url, form_data, follow=True)
         self.assertRedirects(response, expected_url=user_profile_detail_url)
         messages_storage = response.context['messages']
-        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        loaded_messages = [
+            message.message for message in messages_storage._loaded_messages]
         self.assertIn(
             'Successful login', loaded_messages,
             'Expect message to be in loaded messages')
@@ -85,7 +87,8 @@ class TestLoginView(TestCase):
         response = self.client.post(self.login_url, form_data, follow=True)
         self.assertRedirects(response, expected_url=user_profile_detail_url)
         messages_storage = response.context['messages']
-        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        loaded_messages = [
+            message.message for message in messages_storage._loaded_messages]
         self.assertIn(
             'Successful login', loaded_messages,
             'Expect message to be in loaded messages')
@@ -105,7 +108,8 @@ class TestLoginView(TestCase):
             'password', form.errors,
             'Expected password form field to be in form errors')
         messages_storage = response.context['messages']
-        loaded_messages = [message.message for message in messages_storage._loaded_messages]
+        loaded_messages = [
+            message.message for message in messages_storage._loaded_messages]
         self.assertIn(
             'There was an error trying login', loaded_messages,
             'Expect message to be in loaded messages')

@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, path: "vagrant/provisioning.sh"
 
   # Copy .gitconfig file to guest machine.
-  config.vm.provision "file", source: "vagrant/.gitconfig", destination: ".gitconfig"
+  config.vm.provision "file", source: "~/.gitconfig", destination: ".gitconfig"
 
   # Copy .vimrc file to guest machine.
   config.vm.provision "file", source: "vagrant/.vimrc", destination: ".vimrc"

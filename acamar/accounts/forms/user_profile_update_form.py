@@ -7,7 +7,8 @@ from accounts.models import UserProfile
 
 class UserProfileUpdateForm(forms.ModelForm):
     image = forms.ImageField(
-        required=False, label=ugettext_lazy('Profile image'))
+        required=False, label=ugettext_lazy('Profile image')
+        )
 
     class Meta:
         model = User
@@ -23,14 +24,16 @@ class UserProfileUpdateForm(forms.ModelForm):
         self.fields['email'].required = True
         try:
             user_profile = UserProfile.objects.get(
-                authentication_user=kwargs['instance'])
+                authentication_user=kwargs['instance']
+                )
         except UserProfile.DoesNotExist:
             raise ValidationError(
                 'The username "%(username)s" does not have a related UserProfile',
                 code='invalid_username',
                 params={
                     'username': kwargs['instance'].username
-                })
+                }
+                )
         self.initial.update({
             'image': user_profile.image
         })

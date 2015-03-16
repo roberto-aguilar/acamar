@@ -8,12 +8,15 @@ class AuthenticationForm(forms.Form):
     username = forms.CharField(
         max_length=30,
         validators=[validate_user_exists, validate_user_is_active],
-        label=ugettext_lazy('Username'))
+        label=ugettext_lazy('Username')
+        )
     password = forms.CharField(
         max_length=128, widget=forms.PasswordInput,
-        label=ugettext_lazy('Password'))
+        label=ugettext_lazy('Password')
+        )
     next_url = forms.CharField(
-        max_length=128, required=False, widget=forms.HiddenInput)
+        max_length=128, required=False, widget=forms.HiddenInput
+        )
 
     def is_valid(self):
         is_valid = super(AuthenticationForm, self).is_valid()
@@ -21,12 +24,16 @@ class AuthenticationForm(forms.Form):
             username = self.cleaned_data['username']
             password = self.cleaned_data['password']
             user_authenticated = authenticate(
-                username=username, password=password)
+                username=username, password=password
+                )
             if user_authenticated is None:
-                self.add_error('password', forms.ValidationError(
-                    ugettext('Incorrect password'),
-                    code='incorrect_password'
-                ))
+                self.add_error(
+                    'password',
+                    forms.ValidationError(
+                        ugettext('Incorrect password'),
+                        code='incorrect_password'
+                        )
+                    )
                 is_valid = False
             else:
                 self.cleaned_data['user_authenticated'] = user_authenticated

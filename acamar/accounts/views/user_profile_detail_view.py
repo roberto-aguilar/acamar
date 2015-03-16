@@ -9,4 +9,5 @@ class UserProfileDetailView(mixins.LoginRequiredMixin, generic.DetailView):
     def get_object(self, queryset=None):
         authentication_user = self.request.user
         return models.UserProfile.objects.get(
-            authentication_user=authentication_user)
+            authentication_user=authentication_user
+            )

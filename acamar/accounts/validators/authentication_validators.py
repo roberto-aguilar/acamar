@@ -13,7 +13,7 @@ def validate_user_exists(username):
             params={
                 'username': username
             }
-        )
+            )
 
 
 def validate_user_is_active(username):
@@ -26,6 +26,6 @@ def validate_user_is_active(username):
                 params={
                     'username': username
                 }
-            )
+                )
     except User.DoesNotExist:
         pass  # Already validated in validate_user_exists(username)

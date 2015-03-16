@@ -35,7 +35,8 @@ class LoginView(mixins.MessagesMixin, generic.FormView):
         if request.user.is_authenticated():
             messages.add_message(
                 request=request, level=messages.INFO,
-                message=_('Already logged in'))
+                message=_('Already logged in')
+                )
             return redirect(self.get_success_url())
         return super(LoginView, self).get(request, *args, **kwargs)
 

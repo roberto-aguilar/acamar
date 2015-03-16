@@ -11,6 +11,7 @@ def validate_username_does_not_exist(username):
                 code='user_already_exists',
                 params={
                     'username': username
-                })
+                }
+                )
     except User.DoesNotExist:
         pass  # Username available

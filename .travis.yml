@@ -12,3 +12,7 @@ script:
   - coverage report --fail-under=95
 after_success:
   coveralls
+notifications:
+  email:
+    - raguilar@dojogeek.io
+    - jgacosta@dojogeek.io

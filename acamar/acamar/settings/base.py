@@ -34,6 +34,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
     'bootstrap3',
     'common',
     'accounts'
@@ -42,6 +43,7 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -115,3 +117,7 @@ LOCALE_PATHS = (
 
 LOGIN_URL = 'accounts:login'
 LOGOUT_URL = 'accounts:logout'
+
+# CORS
+
+CORS_ORIGIN_ALLOW_ALL = True

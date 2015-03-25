@@ -1,4 +1,8 @@
 from .base import *  # noqa
+from acamar.keys import development #  noqa
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = development.SECRET_KEY
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

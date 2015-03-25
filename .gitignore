@@ -1,5 +1,8 @@
 # Created by https://www.gitignore.io
 
+### Project specific ###
+acamar/acamar/keys/production.py
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/

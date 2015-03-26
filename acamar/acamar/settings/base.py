@@ -32,6 +32,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
+    'djrill',
     'bootstrap3',
     'common',
     'accounts'
@@ -121,3 +122,7 @@ LOGOUT_URL = 'accounts:logout'
 # CORS
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+# Email
+
+EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
